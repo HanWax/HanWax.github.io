@@ -5,9 +5,118 @@
     <description>Hi, I&#39;m Hannah! I recently graduated from Cambridge with a degree in Bio Anthropology and Business. I&#39;m currently learning to code at Makers Academy, a webdev bootcamp in London, and absolutely loving it! Please get in touch if you have any questions.</description>
     <link>http://hanwax.github.io/</link>
     <atom:link href="http://hanwax.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 17 Aug 2014 17:46:32 +0100</pubDate>
-    <lastBuildDate>Sun, 17 Aug 2014 17:46:32 +0100</lastBuildDate>
+    <pubDate>Sun, 17 Aug 2014 20:31:55 +0100</pubDate>
+    <lastBuildDate>Sun, 17 Aug 2014 20:31:55 +0100</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
+    
+      <item>
+        <title>On pair programming</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://hanwax.github.io/assets/pear_programming.png&quot; alt=&quot;Pear programming&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At Makers, pair programming is very much encouraged and is what I spend most of my time doing. At its core pair-programming is when two developers work together at one workstation. They take it in turns to drive and navigate. The driver writes the code whilst the navigator directs the driver, checking the code for mistakes and identifying potential problems or issues that need to be addressed. &lt;/p&gt;
+
+&lt;p&gt;I’m a big proponent of pairing. I find the process of verbalising problems helps me half way to solving them. Moreover, as I am such a newbie, if I was working by myself I would find myself bashing my head against a wall all too often. (Definitely better for two of us to be bashing our heads against the wall!) Having a second perspective with a different approach to the problem is massively helpful. Also, as I’ve discovered over the past couple of months, computers are devilish pedants. They are worse than your friend who corrects you everytime you say ‘who’ instead of ‘whom’. Having someone to spot a stray ‘s’ or missing full-stop can save you a lot of agony when trying to debug.&lt;/p&gt;
+
+&lt;p&gt;Pair-programming reminds me of the ancient Jewish tradition of studying texts, such as the Talmud &lt;em&gt;b’chavruta&lt;/em&gt;, in pairs. This methodology is one in which students learn in pairs, discussing and debating a shared text. Similar to the driver, navigator set up, often one member of the pair will read, whilst the other pair tries to explain what has been read. The ideas in the texts are challenging to understand, and are there to be challenged. When thinking about ideas yourself, you often just reinforce your already formed views. Being challenged is not a comfortable place to be, but it is an important process to go through. Likewise pair-programming is uncomfortable in many situations because you have to expose your thought process, and therefore your vulnerabilities to your pair. Sometimes you have to admit that you don’t know something, or that your understanding might not be correct. But I believe that this is the way that I will become a better thinker and developer. In programming, especially Ruby, there is never just one way of doing something. Having another perspective I have found to be invaluable. &lt;/p&gt;
+
+&lt;p&gt;Yet there seems to be a growing dissatisfaction amongst our cohort with pairing. Around week 5 we were learning around 3 new technologies and testing frameworks I found it extremely difficult to pair. It was hard not to feel swamped by the sheer volume of new information being thrown at us. I just wanted to sit down with a book and the internet to begin to try to get to grips with it all before even attempting to start the project of getting our game of battleships online. One of the main problems seems to be that sometimes you just need time to think for yourself and to be able to process something at your own speed. Last week, ASOS very kindly came in to pair-programme with us, but I can tell you it is far from easy trying to think with someone watching you! However, I have found that good pairs are the ones in which I have space to think things through, and rather than being a hindrance, my pair has built upon my thought process and helped me to develop it. There is always going to be a balance when learning something completely new as to how much time you need to get to grips with the idea before you can start doing, but I think the role for pairing is always there.  &lt;/p&gt;
+
+&lt;p&gt;Some people have learnt with the same &lt;em&gt;chavruta&lt;/em&gt; for years. Clearly some pairs are hugely beneficial. Unfortunately not all pairs will work, or enhance learning. There has to be a mutual understanding of the purpose of the pair, and each pair must give the other person space to think, instead of scaring and stifling their thought process. I have been so lucky to have found so many brilliant people in our cohort who have put up with me, and given me that space to think and to grow my understanding in a way which I doubt would have been possible working by myself. For that, I am deeply grateful. &lt;/p&gt;
+
+&lt;p&gt;Hannah :)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/17/on-pair-programming/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/17/on-pair-programming/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>SOLID Principles</title>
+        <description>&lt;p&gt;The SOLID principles lie at the heart of object-oriented design and exist to help you to design software that is robust and limited in bugs. My favourite principle is the single responsibility principle because I find it the most intuitive. I am still getting to grips with the practical implications of some of the principles, in particular the dependency inversion principle, and trying to incorporate them into the design of the projects. If anyone has any useful examples I would really appreciate hearing your thoughts!&lt;/p&gt;
+
+&lt;h3 id=&quot;single-responsibility-principle&quot;&gt;Single responsibility principle&lt;/h3&gt;
+
+&lt;p&gt;The single responsibility principle states that each object should have one responsibility only, and that responsibility should be entirely encapsulated by that class. This doesn’t mean that each class contains only one method, but that all methods are connected to the primary function of the class. If we think about our Battleships game, we gave our cell class the single responsibility of knowing its status. This included knowing whether it had been previously attacked or not, and whether it was occupied or empty. The idea behind this is that when a class has more than one responsibility, the likelihood of change to that class occurring is relatively high. Every time a class is changed, the risk of introducing bugs increase. In our design we can encourage tight cohesion but loose coupling by sticking to the SRP. Tight cohesion relates to how strongly related and focused the responsibilities are. Coupling is the degree to which one class/module relies on an other. If there is tight coupling, changes to one part of the programme are more likely to affect the behaviour of other parts in unexpected ways and more bugs will be introduced. &lt;/p&gt;
+
+&lt;h3 id=&quot;openclosed-principle&quot;&gt;Open/closed principle&lt;/h3&gt;
+
+&lt;p&gt;The open/closed principle states that software entities should be open for extension but close for modificiation. The closed part of the principle refers to the fact that once a class is pushed to development, and has been tested, it should only be modified to deal with bugs. However, the open part refers to the fact that a class can be open for extension to introduce new functionality. This should only be done by adding new code to the existing code base. This reduces risk of new bugs being introduced by limiting changes made to existing code. &lt;/p&gt;
+
+&lt;h3 id=&quot;liskov-substitution-principle&quot;&gt;Liskov substitution principle&lt;/h3&gt;
+
+&lt;p&gt;Liskov substitution principle states that subtypes must be substitutable for their base types. This principle goes to the heart of any class inheritance chain. If you write a class that uses a parameter or variable of some base class, then you should be able to pass an instance of some descendant class into the base class and the behaviour should remain exactly the same. This can be illustrated with a simple example. Let’s say we have a base class of a bird, that has a method that allows it to fly. Then we create a descendant duck class. The duck class has a method fly that overrides that method pertaining to how birds fly. Then an ostrich sub-class is created. Although an ostrich instance is substitutable for a bird instance - its introduction causes breaking change to every instance where a bird is asked to fly. It breaks the Liskov substitution principle because it introduces new behaviour into existing code by writing a descendant of the base class. To solve this, one might suggest the rewriting of the base class, our bird class. However, if you were to do this you If you would be breaking the Open/Close principle.&lt;/p&gt;
+
+&lt;h3 id=&quot;interface-segregation-principle&quot;&gt;Interface segregation principle&lt;/h3&gt;
+
+&lt;p&gt;This principle states that classes that implement interfaces, should not be forced to implement methods that they do not use. Often when you create a class with a large number of methods and properties, the class is used by other types that only require access to one or two such methods. The classes become more tightly coupled as the number of methods they incorporate grows. In accordance with the ISP, large should classes implement multiple smaller interfaces that group functions according to their usage. &lt;/p&gt;
+
+&lt;h3 id=&quot;dependency-inversion-principle&quot;&gt;Dependency inversion principle&lt;/h3&gt;
+
+&lt;p&gt;This principle states that high-level modules should not depend upon low-level modules, both should depend upon abstractions. Unlike what many people would assume, this principle inverts the idea that higher-level components should be dependent upon lower-level modules. Instead, both of them should depend upon the same abstraction.  Abstractions should not depend on details, but details should depend upon abstractions. &lt;/p&gt;
+
+&lt;p&gt;Hannah :)&lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Aug 2014 23:10:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/16/solid-principles/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/solid-principles/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Object-oriented Programming</title>
+        <description>&lt;p&gt;Oracle defines object-oriented programming as a method of programming based on a hierarchy of classes, and well-defined and cooperating objects. A class is a structure that models the data and the methods that can be called on that model. Relationships between objects can be created and objects can inherit characteristics from other objects. A principal advantage of object-oriented programming is that this design enables developers to create modules and classes that do not need to be changed when a new type of object is added. A new object that inherits many of features of an existing object can simply be created. This makes the programme easier to modify without breaking and or having to rebuild it in its entirety. &lt;/p&gt;
+
+&lt;p&gt;I found this concept fairly hard to get my head around at first. So I thought it would be best to have a look at an example of object-oriented programming in the wild. &lt;/p&gt;
+
+&lt;p&gt;The first step that we are going to take is writing out a description of the software programme. This will help us to identify what classes our model is going to contain. One of the first OOP projects we worked on was building a Battleships programme, so I’ll use this as a starting point. &lt;/p&gt;
+
+&lt;h3 id=&quot;our-description-of-the-game&quot;&gt;Our description of the game:&lt;/h3&gt;
+
+&lt;p&gt;“Battleships is a two &lt;strong&gt;player&lt;/strong&gt; &lt;strong&gt;game&lt;/strong&gt;. Each player deploys 5 &lt;strong&gt;ships&lt;/strong&gt; on a 10 x 10 &lt;strong&gt;grid&lt;/strong&gt;. Each &lt;strong&gt;cell&lt;/strong&gt; has a unique grid reference. Each player takes &lt;em&gt;turns&lt;/em&gt; to call out a grid reference and the other players confirms whether it is a &lt;em&gt;‘hit’&lt;/em&gt; or &lt;em&gt;‘miss’&lt;/em&gt; if a ship is at that grid reference or not. The attacking players marks the ‘hit’ or ‘miss’ on their tracking grid. The defending player marks ‘hit’ or ‘miss’ on their primary grid. Players alternate turns. When every cell that comprises one ship has been ‘hit’, the defending player declares it &lt;em&gt;sunk&lt;/em&gt;. When a player sinks all their opponent’s ships they &lt;em&gt;win&lt;/em&gt; and the game ends.””&lt;/p&gt;
+
+&lt;p&gt;The first job is to highlight the nouns and verbs in the descriptions. The nouns will form the basis of the classes in our model, whilst the verbs describe the responsibility that each class has. In extreme-programming class-responsibility-collaboration cards are used as a brainstorming tool. Each class is written on an index card. Then for each class, the responsibilities of that class along with the collaborators are recorded. As you can see from the description of our battleships game, we highlighted our player as a noun, meaning that we should make it into a class. We then should think about what responsibilities our player has. For example, our player can be responsibile for deploying ships to the grid. It can also be responsible for possessing a grid. In these scenarios, the collaborators involved would be the ship and the grid respectively.&lt;/p&gt;
+
+&lt;p&gt;When working on this project in a team of four, we soon discovered that there are any number of ways to model the data and to divvy up the various responsibilities! Whilst we made many mistakes, we learnt several key lessons. Firstly, having the discussion about how to model the programme is an extremely useful process, but this does not mean that the design should be set in stone from the outset. We encountered places where other models would have worked better, and we adapted our original description to fit those requirements. Secondly, the more classes and object-oriented the programme is, the easier it is to model. In our original discussion we had decided that ‘hit’ and ‘miss’ were attributes that belonged to our cell class. However, as we were writing the programme, it became clear that having individual ‘hit cell’ and ‘miss cell’ classes made our game easier to play and gave way to a better design. &lt;/p&gt;
+
+&lt;p&gt;There are five guiding principles, known as the SOLID principles, that help developers to model their software in a well designed object-oriented manner that allows for maximum flexibility of the code base whilst minimising bugs. &lt;/p&gt;
+
+&lt;p&gt;These are:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Single responsibility principle&lt;/li&gt;
+  &lt;li&gt;Open/closed principle&lt;/li&gt;
+  &lt;li&gt;Liskov substitution principle&lt;/li&gt;
+  &lt;li&gt;Interface segregation principle&lt;/li&gt;
+  &lt;li&gt;Dependency inversion principle&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;But these deserve a blog post of their own. &lt;/p&gt;
+
+&lt;p&gt;To summarise:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Object-oriented programming helps to prevent rigid, immobile and inflexible designs. &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Object-oriented programming and design involves using classes as models of real-world objects. Objects have both states(data) and behaviour (methods).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Object-oriented programming is about managing the interactivity and dependencies between various objects. The objects interact by sending and receiving messages to and from each other.  &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Hannah :) &lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Aug 2014 23:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/16/object-oriented-design/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/object-oriented-design/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Testing doubles - mocks and stubbing</title>
@@ -103,9 +212,9 @@
 
 &lt;p&gt;Hannah :) &lt;/p&gt;
 </description>
-        <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
-        <link>http://hanwax.github.io/2014/08/17/testing-doubles/</link>
-        <guid isPermaLink="true">http://hanwax.github.io/2014/08/17/testing-doubles/</guid>
+        <pubDate>Sat, 16 Aug 2014 22:30:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/16/testing-doubles/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/testing-doubles/</guid>
         
         
       </item>
@@ -199,55 +308,9 @@
 
 &lt;p&gt;Hannah :) &lt;/p&gt;
 </description>
-        <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
-        <link>http://hanwax.github.io/2014/08/17/testing/</link>
-        <guid isPermaLink="true">http://hanwax.github.io/2014/08/17/testing/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>On pair programming</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://hanwax.github.io/assets/pear_programming.png&quot; alt=&quot;Pear programming&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At Makers, pair programming is very much encouraged and is what I spend most of my time doing. At its core pair-programming is when two developers work together at one workstation. They take it in turns to drive and navigate. The driver writes the code whilst the navigator directs the driver, checking the code for mistakes and identifying potential problems or issues that need to be addressed. &lt;/p&gt;
-
-&lt;p&gt;I’m a big proponent of pairing. I find the process of verbalising problems helps me half way to solving them. Moreover, as I am such a newbie, if I was working by myself I would find myself bashing my head against a wall all too often. (Definitely better for two of us to be bashing our heads against the wall!) Having a second perspective with a different approach to the problem is massively helpful. Also, as I’ve discovered over the past couple of months, computers are devilish pedants. They are worse than your friend who corrects you everytime you say ‘who’ instead of ‘whom’. Having someone to spot a stray ‘s’ or missing full-stop can save you a lot of agony when trying to debug.&lt;/p&gt;
-
-&lt;p&gt;Pair-programming reminds me of the ancient Jewish tradition of studying texts, such as the Talmud &lt;em&gt;b’chavruta&lt;/em&gt;, in pairs. This methodology is one in which students learn in pairs, discussing and debating a shared text. Similar to the driver, navigator set up, often one member of the pair will read, whilst the other pair tries to explain what has been read. The ideas in the texts are challenging to understand, and are there to be challenged. When thinking about ideas yourself, you often just reinforce your already formed views. Being challenged is not a comfortable place to be, but it is an important process to go through. Likewise pair-programming is uncomfortable in many situations because you have to expose your thought process, and therefore your vulnerabilities to your pair. Sometimes you have to admit that you don’t know something, or that your understanding might not be correct. But I believe that this is the way that I will become a better thinker and developer. In programming, especially Ruby, there is never just one way of doing something. Having another perspective I have found to be invaluable. &lt;/p&gt;
-
-&lt;p&gt;Yet there seems to be a growing dissatisfaction amongst our cohort with pairing. Around week 5 we were learning around 3 new technologies and testing frameworks I found it extremely difficult to pair. It was hard not to feel swamped by the sheer volume of new information being thrown at us. I just wanted to sit down with a book and the internet to begin to try to get to grips with it all before even attempting to start the project of getting our game of battleships online. One of the main problems seems to be that sometimes you just need time to think for yourself and to be able to process something at your own speed. Last week, ASOS very kindly came in to pair-programme with us, but I can tell you it is far from easy trying to think with someone watching you! However, I have found that good pairs are the ones in which I have space to think things through, and rather than being a hindrance, my pair has built upon my thought process and helped me to develop it. There is always going to be a balance when learning something completely new as to how much time you need to get to grips with the idea before you can start doing, but I think the role for pairing is always there.  &lt;/p&gt;
-
-&lt;p&gt;Some people have learnt with the same &lt;em&gt;chavruta&lt;/em&gt; for years. Clearly some pairs are hugely beneficial. Unfortunately not all pairs will work, or enhance learning. There has to be a mutual understanding of the purpose of the pair, and each pair must give the other person space to think, instead of scaring and stifling their thought process. I have been so lucky to have found so many brilliant people in our cohort who have put up with me, and given me that space to think and to grow my understanding in a way which I doubt would have been possible working by myself. For that, I am deeply grateful. &lt;/p&gt;
-
-&lt;p&gt;Hannah :)&lt;/p&gt;
-</description>
-        <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
-        <link>http://hanwax.github.io/2014/08/17/on-pair-programming/</link>
-        <guid isPermaLink="true">http://hanwax.github.io/2014/08/17/on-pair-programming/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Life at Makers</title>
-        <description>&lt;p&gt;Makers has been simultaneously one of the most fun and challenging things that I have undertaken. It is a fairly unique learning environment, where there is a strong emphasis on learning by doing and Googling, as well as learning from your peers (from whom I have picked up a huge amount!). Although there are two, albeit very informative and useful, lectures a day, where the key concepts are covered, the bulk of our time is spent working on the weekly projects in pairs. Our weekly projects have ranged from building the Boris Bikes software system, to building a clone of Yelp!. I do believe that learning by doing is the best way to really get to grips with something, but it is hard not to feel completely swamped at times, especially when you feel like you are so far out of your depth that you don’t even know where to start!&lt;/p&gt;
-
-&lt;p&gt;On the plus side, I feel like there are particular areas in which I feel some real tangible improvements. I think one of the best things that I have got out of Makers is attention to detail and patience, especially with regards to learning to read error messages. I know that sounds silly, but at the beginning this was the part I struggled with most. When there were bugs in the programme, or my RSpec test failed, I would try and fix the problem without looking at the hints that the computer was giving me. Computers are great at telling you exactly what the problem is if you take time to read and understand it. Having the patience and understanding to decipher the error messages is a skill I’m still working on, but one that I am definitely getting better at. Oh, and also, sometimes all it requires is a restart. There have been a few too many moments when I have had an unusual and unexpected error message, and tried to ask around if anyone could fix it, only to be fixed in about 30 seconds by Alex simply refreshing or restarting the laptop! &lt;/p&gt;
-
-&lt;p&gt;The pace of learning has not stopped accelerating and it’s often hard to catch a moment to go over and revise what I have learnt. When I do have time to rewatch the screencasts from the lectures it is amazing how much more sense things make a second time round, especially after having spent some time using the technology. Ideally I think it was be helpful to try and build a little side project app that employs the use of the technologies that we are learning that week, but it is often hard to find the time. In week 7, Nikesh and I started a little side project to try and get to grips with using APIs. We used a recipe searcing API from the website Yummly. Now we understand how to access the data, we are looking at ways to migrate the project on to Rails with some added functionality. &lt;/p&gt;
-
-&lt;p&gt;Although it can be hard to find time to go over and revise the week’s project, Friday is test day and that often means being set a test that mirrors what we have learnt that week. One of my favourite challenges was building a Twitter clone using databases and Postgres. During that week we had been building a bookmark manager website, which is built in a manner not dissimilar to Twitter. I found that challenge so incredibly useful for deepening my understanding of everything covered that week. &lt;/p&gt;
-
-&lt;p&gt;A really great initiative that Makers have just introduced is mentoring. Makers alumni who are currently working as junior developers come in some evenings and help us with essentially whatever we would like to go over. My mentor, Margo, who is a Rails developer at Mint Digital, came in to Makers last Wednesday evening and showed us a Rails project she has been working on, tools she uses for debugging, and how she uses Github in the working world. It was really awesome to be able to recognise some similar features that we had in our own apps and to hear her about her Makers journey. She had a pretty impressive front-end Twitter clone…got to get to work on mine! &lt;/p&gt;
-
-&lt;p&gt;Don’t worry guys, it’s not all work and no play. As in all good tech environments, I’ve had my fair share of time on the table tennis table. Last Thursday, the office on the floor below us had a summer party and invited us all. They threw a great party! We’ve also had some pretty awesome lunchtime talks from the likes of Open Table, Compare the Market and Softwire. Tim Perry from Softwire spoke to us about the importance of open-source, a really interesting topic on which I hope to write a blog post in the near future…&lt;/p&gt;
-
-&lt;p&gt;Hannah :)&lt;/p&gt;
-</description>
-        <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
-        <link>http://hanwax.github.io/2014/08/17/life-at-makers/</link>
-        <guid isPermaLink="true">http://hanwax.github.io/2014/08/17/life-at-makers/</guid>
+        <pubDate>Sat, 16 Aug 2014 22:20:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/16/testing/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/testing/</guid>
         
         
       </item>
@@ -346,7 +409,7 @@
 &lt;/table&gt;
 
 </description>
-        <pubDate>Sat, 16 Aug 2014 23:00:00 +0100</pubDate>
+        <pubDate>Sat, 16 Aug 2014 22:10:00 +0100</pubDate>
         <link>http://hanwax.github.io/2014/08/16/tech-terms/</link>
         <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/tech-terms/</guid>
         
@@ -354,69 +417,24 @@
       </item>
     
       <item>
-        <title>SOLID Principles</title>
-        <description>&lt;p&gt;The SOLID principles lie at the heart of object-oriented design and exist to help you to design software that is robust and limited in bugs. My favourite principle is the single responsibility principle because I find it the most intuitive. I am still getting to grips with the practical implications of some of the principles, in particular the dependency inversion principle, and trying to incorporate them into the design of the projects. If anyone has any useful examples I would really appreciate hearing your thoughts!&lt;/p&gt;
+        <title>Life at Makers</title>
+        <description>&lt;p&gt;Makers has been simultaneously one of the most fun and challenging things that I have undertaken. It is a fairly unique learning environment, where there is a strong emphasis on learning by doing and Googling, as well as learning from your peers (from whom I have picked up a huge amount!). Although there are two, albeit very informative and useful, lectures a day, where the key concepts are covered, the bulk of our time is spent working on the weekly projects in pairs. Our weekly projects have ranged from building the Boris Bikes software system, to building a clone of Yelp!. I do believe that learning by doing is the best way to really get to grips with something, but it is hard not to feel completely swamped at times, especially when you feel like you are so far out of your depth that you don’t even know where to start!&lt;/p&gt;
 
-&lt;h3 id=&quot;single-responsibility-principle&quot;&gt;Single responsibility principle&lt;/h3&gt;
+&lt;p&gt;On the plus side, I feel like there are particular areas in which I feel some real tangible improvements. I think one of the best things that I have got out of Makers is attention to detail and patience, especially with regards to learning to read error messages. I know that sounds silly, but at the beginning this was the part I struggled with most. When there were bugs in the programme, or my RSpec test failed, I would try and fix the problem without looking at the hints that the computer was giving me. Computers are great at telling you exactly what the problem is if you take time to read and understand it. Having the patience and understanding to decipher the error messages is a skill I’m still working on, but one that I am definitely getting better at. Oh, and also, sometimes all it requires is a restart. There have been a few too many moments when I have had an unusual and unexpected error message, and tried to ask around if anyone could fix it, only to be fixed in about 30 seconds by Alex simply refreshing or restarting the laptop! &lt;/p&gt;
 
-&lt;p&gt;The single responsibility principle states that each object should have one responsibility only, and that responsibility should be entirely encapsulated by that class. This doesn’t mean that each class contains only one method, but that all methods are connected to the primary function of the class. If we think about our Battleships game, we gave our cell class the single responsibility of knowing its status. This included knowing whether it had been previously attacked or not, and whether it was occupied or empty. The idea behind this is that when a class has more than one responsibility, the likelihood of change to that class occurring is relatively high. Every time a class is changed, the risk of introducing bugs increase. In our design we can encourage tight cohesion but loose coupling by sticking to the SRP. Tight cohesion relates to how strongly related and focused the responsibilities are. Coupling is the degree to which one class/module relies on an other. If there is tight coupling, changes to one part of the programme are more likely to affect the behaviour of other parts in unexpected ways and more bugs will be introduced. &lt;/p&gt;
+&lt;p&gt;The pace of learning has not stopped accelerating and it’s often hard to catch a moment to go over and revise what I have learnt. When I do have time to rewatch the screencasts from the lectures it is amazing how much more sense things make a second time round, especially after having spent some time using the technology. Ideally I think it was be helpful to try and build a little side project app that employs the use of the technologies that we are learning that week, but it is often hard to find the time. In week 7, Nikesh and I started a little side project to try and get to grips with using APIs. We used a recipe searcing API from the website Yummly. Now we understand how to access the data, we are looking at ways to migrate the project on to Rails with some added functionality. &lt;/p&gt;
 
-&lt;h3 id=&quot;openclosed-principle&quot;&gt;Open/closed principle&lt;/h3&gt;
+&lt;p&gt;Although it can be hard to find time to go over and revise the week’s project, Friday is test day and that often means being set a test that mirrors what we have learnt that week. One of my favourite challenges was building a Twitter clone using databases and Postgres. During that week we had been building a bookmark manager website, which is built in a manner not dissimilar to Twitter. I found that challenge so incredibly useful for deepening my understanding of everything covered that week. &lt;/p&gt;
 
-&lt;p&gt;The open/closed principle states that software entities should be open for extension but close for modificiation. The closed part of the principle refers to the fact that once a class is pushed to development, and has been tested, it should only be modified to deal with bugs. However, the open part refers to the fact that a class can be open for extension to introduce new functionality. This should only be done by adding new code to the existing code base. This reduces risk of new bugs being introduced by limiting changes made to existing code. &lt;/p&gt;
+&lt;p&gt;A really great initiative that Makers have just introduced is mentoring. Makers alumni who are currently working as junior developers come in some evenings and help us with essentially whatever we would like to go over. My mentor, Margo, who is a Rails developer at Mint Digital, came in to Makers last Wednesday evening and showed us a Rails project she has been working on, tools she uses for debugging, and how she uses Github in the working world. It was really awesome to be able to recognise some similar features that we had in our own apps and to hear her about her Makers journey. She had a pretty impressive front-end Twitter clone…got to get to work on mine! &lt;/p&gt;
 
-&lt;h3 id=&quot;liskov-substitution-principle&quot;&gt;Liskov substitution principle&lt;/h3&gt;
-
-&lt;p&gt;Liskov substitution principle states that subtypes must be substitutable for their base types. This principle goes to the heart of any class inheritance chain. If you write a class that uses a parameter or variable of some base class, then you should be able to pass an instance of some descendant class into the base class and the behaviour should remain exactly the same. This can be illustrated with a simple example. Let’s say we have a base class of a bird, that has a method that allows it to fly. Then we create a descendant duck class. The duck class has a method fly that overrides that method pertaining to how birds fly. Then an ostrich sub-class is created. Although an ostrich instance is substitutable for a bird instance - its introduction causes breaking change to every instance where a bird is asked to fly. It breaks the Liskov substitution principle because it introduces new behaviour into existing code by writing a descendant of the base class. To solve this, one might suggest the rewriting of the base class, our bird class. However, if you were to do this you If you would be breaking the Open/Close principle.&lt;/p&gt;
-
-&lt;h3 id=&quot;interface-segregation-principle&quot;&gt;Interface segregation principle&lt;/h3&gt;
-
-&lt;p&gt;This principle states that classes that implement interfaces, should not be forced to implement methods that they do not use. Often when you create a class with a large number of methods and properties, the class is used by other types that only require access to one or two such methods. The classes become more tightly coupled as the number of methods they incorporate grows. In accordance with the ISP, large should classes implement multiple smaller interfaces that group functions according to their usage. &lt;/p&gt;
-
-&lt;h3 id=&quot;dependency-inversion-principle&quot;&gt;Dependency inversion principle&lt;/h3&gt;
-
-&lt;p&gt;This principle states that high-level modules should not depend upon low-level modules, both should depend upon abstractions. Unlike what many people would assume, this principle inverts the idea that higher-level components should be dependent upon lower-level modules. Instead, both of them should depend upon the same abstraction.  Abstractions should not depend on details, but details should depend upon abstractions. &lt;/p&gt;
+&lt;p&gt;Don’t worry guys, it’s not all work and no play. As in all good tech environments, I’ve had my fair share of time on the table tennis table. Last Thursday, the office on the floor below us had a summer party and invited us all. They threw a great party! We’ve also had some pretty awesome lunchtime talks from the likes of Open Table, Compare the Market and Softwire. Tim Perry from Softwire spoke to us about the importance of open-source, a really interesting topic on which I hope to write a blog post in the near future…&lt;/p&gt;
 
 &lt;p&gt;Hannah :)&lt;/p&gt;
 </description>
-        <pubDate>Sat, 16 Aug 2014 00:00:00 +0100</pubDate>
-        <link>http://hanwax.github.io/2014/08/16/solid-principles/</link>
-        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/solid-principles/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Object-oriented Programming</title>
-        <description>&lt;p&gt;Oracle defines object-oriented programming as a method of programming based on a hierarchy of classes, and well-defined and cooperating objects. A class is a structure that models the data and the methods that can be called on that model. Relationships between objects can be created and objects can inherit characteristics from other objects. A principal advantage of object-oriented programming is that this design enables developers to create modules and classes that do not need to be changed when a new type of object is added. A new object that inherits many of features of an existing object can simply be created. This makes the programme easier to modify without breaking and or having to rebuild it in its entirety. &lt;/p&gt;
-
-&lt;p&gt;I found this concept fairly hard to get my head around until I started building projects using OOP principles. So let’s have a look at an example in the wild. The first step in creating a well-designed OOP software project lies in writing out a description of the software programme that we want to create in order to identify what classes we are going to need. One of the first OOP projects we worked on was building a Battleships programme, so I’ll use this as a starting point. &lt;/p&gt;
-
-&lt;p&gt;Our description of the game:&lt;/p&gt;
-
-&lt;p&gt;“Battleships is a two &lt;strong&gt;player&lt;/strong&gt; &lt;strong&gt;game&lt;/strong&gt;. Each player deploys 5 &lt;strong&gt;ships&lt;/strong&gt; on a 10 x 10 &lt;strong&gt;grid&lt;/strong&gt;. Each &lt;strong&gt;cell&lt;/strong&gt; has a unique grid reference. Each player takes &lt;em&gt;turns&lt;/em&gt; to call out a grid reference and the other players confirms whether it is a &lt;em&gt;‘hit’&lt;/em&gt; or &lt;em&gt;‘miss’&lt;/em&gt; if a ship is at that grid reference or not. The attacking players marks the ‘hit’ or ‘miss’ on their tracking grid. The defending player marks ‘hit’ or ‘miss’ on their primary grid. Players alternate turns. When every cell that comprises one ship has been ‘hit’, the defending player declares it &lt;em&gt;sunk&lt;/em&gt;. When a player sinks all their opponent’s ships they &lt;em&gt;win&lt;/em&gt; and the game ends.””&lt;/p&gt;
-
-&lt;p&gt;The first job is to highlight the nouns and verbs in the descriptions. The nouns will form the basis of the classes in your model, whilst the verbs describe the responsibility that each class has. In extreme-programming class-responsibility-collaboration cards are used as a brainstorming tool. Each class is written on an index card. Then for each class, the responsibilities of that class along with the collaborators are recorded. Therefore, with regard to the battleships programme that we were building, we had highlighted our player as a noun, thus indicating that we wanted to make our player a class of its own. We gave the player two responsibilities. The first was that the player was responsibile for deploying ships to the grid. The second responsibility of the player class was to possess a grid. The collaborators involved were the ship and the grid respectively.&lt;/p&gt;
-
-&lt;p&gt;As we soon discovered in our team of four, there are any number of ways to model the data and to divvy up the various responsibilities! Whilst we made many mistakes, there were several key lessons learnt. Firstly, it is a useful process to discuss how you want to model the programme, but this does not mean that the design should be set in stone from the outset. We encountered places where other models would have worked better, and we adapted our original description to fit that. Secondly, the more classes and object-oriented the programme is, the easier it was to model. In our oirignal discussion we had decided that ‘hit’ and ‘miss’ were attributes that belonged to our cell class. However, as we were writing the programme, it became clear that having individual ‘hit cell’ and ‘miss cell’ classes made our game easier to play and gave way to a better design. &lt;/p&gt;
-
-&lt;p&gt;Well designed object-oriented software follows the SOLID principles:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Single responsibility principle&lt;/li&gt;
-  &lt;li&gt;Open/closed principle&lt;/li&gt;
-  &lt;li&gt;Liskov substitution principle&lt;/li&gt;
-  &lt;li&gt;Interface segregation principle&lt;/li&gt;
-  &lt;li&gt;Dependency inversion principle&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;But these deserve a blog post of their own. &lt;/p&gt;
-
-&lt;p&gt;Hannah :) &lt;/p&gt;
-</description>
-        <pubDate>Sat, 16 Aug 2014 00:00:00 +0100</pubDate>
-        <link>http://hanwax.github.io/2014/08/16/object-oriented-design/</link>
-        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/object-oriented-design/</guid>
+        <pubDate>Sat, 16 Aug 2014 22:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/16/life-at-makers/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/life-at-makers/</guid>
         
         
       </item>
