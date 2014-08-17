@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A brief guide to tech terms"
-date:   2014-08-16 22:00:00
+date:   2014-08-16 21:10:00
 ---
 
 | Technical term                                         | Definition                                                     |

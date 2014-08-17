@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Life at Makers"
-date:   2014-08-16 23:00:00
+date:   2014-08-16 21:00:00
 ---
 
 Makers has been simultaneously one of the most fun and challenging things that I have undertaken. It is a fairly unique learning environment, where there is a strong emphasis on learning by doing and Googling, as well as learning from your peers (from whom I have picked up a huge amount!). Although there are two, albeit very informative and useful, lectures a day, where the key concepts are covered, the bulk of our time is spent working on the weekly projects in pairs. Our weekly projects have ranged from building the Boris Bikes software system, to building a clone of Yelp!. I do believe that learning by doing is the best way to really get to grips with something, but it is hard not to feel completely swamped at times, especially when you feel like you are so far out of your depth that you don't even know where to start!

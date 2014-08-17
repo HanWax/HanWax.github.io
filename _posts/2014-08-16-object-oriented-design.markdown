@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Object-oriented Programming"
-date:   2014-08-15 23:00:00
+date:   2014-08-15 22:00:00
 ---
 
 Oracle defines object-oriented programming as a method of programming based on a hierarchy of classes, and well-defined and cooperating objects. A class is a structure that models the data and the methods that can be called on that model. Relationships between objects can be created and objects can inherit characteristics from other objects. A principal advantage of object-oriented programming is that this design enables developers to create modules and classes that do not need to be changed when a new type of object is added. A new object that inherits many of features of an existing object can simply be created. This makes the programme easier to modify without breaking and or having to rebuild it in its entirety. 

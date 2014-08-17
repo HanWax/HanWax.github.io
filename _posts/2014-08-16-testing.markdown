@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Red Green Refactor"
-date:   2014-08-16 23:00:00
+date:   2014-08-16 21:20:00
 ---
 
 Test-driven development is the practice that involves writing tests before writing the code that is being tested. The test will inevitably fail because no code has yet been written. The developer should watch the test fail, because if it does not fail, it could indicate that some unexpected interaction is affecting your code. After having watched the test fail, you should write the minimum amount of code that will make it pass. Personally, it is this part of the process is, that I found hardest to get my head around, and so I will try to explain it using a simple example. 
