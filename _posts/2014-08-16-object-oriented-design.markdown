@@ -6,7 +6,9 @@ date:   2014-08-15 22:00:00
 
 Oracle defines object-oriented programming as a method of programming based on a hierarchy of classes, and well-defined and cooperating objects. A class is a structure that models the data and the methods that can be called on that model. Relationships between objects can be created and objects can inherit characteristics from other objects. A principal advantage of object-oriented programming is that this design enables developers to create modules and classes that do not need to be changed when a new type of object is added. A new object that inherits many of features of an existing object can simply be created. This makes the programme easier to modify without breaking and or having to rebuild it in its entirety. 
 
-I found this concept fairly hard to get my head around until I started building projects using OOP principles. So let's have a look at an example in the wild. The first step in creating a well-designed OOP software project lies in writing out a description of the software programme that we want to create in order to identify what classes we are going to need. One of the first OOP projects we worked on was building a Battleships programme, so I'll use this as a starting point. 
+I found this concept fairly hard to get my head around at first. So I thought it would be best to have a look at an example of object-oriented programming in the wild. 
+
+The first step that we are going to take is writing out a description of the software programme. This will help us identify what classes our model is going to contain. One of the first OOP projects we worked on was building a Battleships programme, so I'll use this as a starting point. 
 
 Our description of the game:
 
