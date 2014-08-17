@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hello World</title>
+    <description>Hi, I&#39;m Hannah! I recently graduated from Cambridge with a degree in Bio Anthropology and Business. I&#39;m currently learning to code at Makers Academy, a webdev bootcamp in London, and absolutely loving it! Please get in touch if you have any questions.</description>
+    <link>http://hanwax.github.io/</link>
+    <atom:link href="http://hanwax.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 17 Aug 2014 17:00:42 +0100</pubDate>
+    <lastBuildDate>Sun, 17 Aug 2014 17:00:42 +0100</lastBuildDate>
+    <generator>Jekyll v2.2.0</generator>
+    
+      <item>
+        <title>Testing doubles - mocks and stubbing</title>
+        <description>&lt;p&gt;In well designed software each class will have a single responsibility. However, in software systems, the various classes that make up the system will need to interact with each other. When test-driving the code for each class, these interactions will need to be taken into account. The Chicago school, also known as the classical school, tests these interactions by creating real instances of each class. There are several problems that can arise as a result of using real instances of other classes in tests. These problems are easiest illustrated with an example, alongside the alternative approach of using doubles as advocated by the London school. The purpose of using doubles in testing is much like the reason why stunt doubles are used in films. Stunt doubles are used to undertake dangerous or risky parts of films, in which it is not necessary for the credibility of the film to have the real actor. Likewise, doubles are used in tests because it is not necessary for the validity of our unit tests to ensure that the interactions between our various classes work in a particular way. We just want to test that they happen. &lt;/p&gt;
+
+&lt;p&gt;So let’s begin our example. I’ll talk you through the creation of a simple software system that allows you to borrow books from a library. To start with, I would write out a simple description of my system in order to identify the various classes that I will need to create. &lt;/p&gt;
+
+&lt;p&gt;Description: we are building a system that manages &lt;em&gt;books&lt;/em&gt; that can be borrowed by &lt;em&gt;people&lt;/em&gt; from a &lt;em&gt;library&lt;/em&gt; and returned after they have been read. The books can be lost when they are in the user’s possession, in which case they will not be available for further borrowing.&lt;/p&gt;
+
+&lt;p&gt;I have italicised all the nouns in my description, as I will take these as my starting point for my classes. Say I am working collaboratively on this project, and it has been decided that I will create the person class, whilst another member of the team will start to work on the book class. &lt;/p&gt;
+
+&lt;p&gt;Let’s start thinking about our person class in terms of what responsibilities the person will have. When writing my first test, I always want to start with the simplest scenario: a person can have a book. In my first test, I would expect that upon initialisation, a person doesn’t have a book. Let’s write our test. &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;should not have a book upon initialisation&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
+	&lt;span class=&quot;n&quot;&gt;hannah&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hannah&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;not_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;have_book&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;RSpec will complain at me that there is no method has_book?&lt;/p&gt;
+
+&lt;p&gt;So let’s go ahead and create it&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;has_book?&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The test still fails because it expected ‘false’ but received ‘nil’. The simplest way to make this test pass would be to pass in the value false. Baby steps, remember. &lt;/p&gt;
+
+&lt;p&gt;Our method is not yet robust enough as it doesn’t actually account for the responsibility that we want it to. The next step therefore would be to write another test.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;should have a book when given a book&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
+	&lt;span class=&quot;n&quot;&gt;hannah&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hannah&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;have_book&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s just have a closer look at what we did there. This is our first use of mocking. We gave the person a book as a symbol. This is not a real instance of the book, in reality we could put anything we like there. It doesn’t even have to be a symbol. We are just testing that the person receives &lt;em&gt;something&lt;/em&gt;. We have made it a symbol of a book to remind ourselves, and the people that we are working with, that once the system is wired together, we will ensure that a person can only borrow a book and not some other class. So why did we mock this instead of checking whether the person received a real book? &lt;strong&gt;We want to avoid pollution in our code.&lt;/strong&gt; As an analogy, if we were testing how a particular gas behaved, we would test it in a vacuum rather than in air. If we tested it in the air, the behaviour would be obscured by its interactions with oxygen, nitrogen and other elements. So too with our code. We want to test our person class in isolation, to ensure that the person behaves as it should do. There could be errors in the code base of the book class which obscure the behaviour of our person class if we use a real instance of a book. By keeping each class separate we can test that each class behaves as it should and thus debugging becomes far more manageable. Moreover, if we were not using doubles at this point, I would have to go and create my book class and develop it up to the point where the interaction could occur. This would make working independently all the more difficult.  &lt;/p&gt;
+
+&lt;p&gt;Now RSpec will complain to us that there are the wrong number of arguments. It expected zero arguments, but received one.  We can fix this by initialising our Person class with a book. &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;vi&quot;&gt;@book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; 
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;has_book?&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nil?&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here we have initialised our person with a book, and set the default value to nil, so that a person doesn’t have a book when initialised, unless we give her one. Now both our tests our passing.&lt;/p&gt;
+
+&lt;p&gt;Our next step might be to design the code for borrowing of the books from the library. &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;should be able to borrow a book from the library&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
+	&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:library&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;hannah&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:bike&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:lend_book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;hannah&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;borrow_book_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And our code to make it pass would look something like this.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;borrow_book_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lend_book&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;So what is going on here? We don’t yet have a ‘lend_book’ method in our programme anywhere, so how is the code passing? What is happening in this code is pure design. We are designing and shaping how our person is going to interact with the book, because we don’t yet have a book. Pretty neat that we can design our person class and its interactions with other objects without having yet created those objects, no? Using doubles has allowed us to write our code in a methodological manner where we don’t have to keep jumping back and forth between classes.  &lt;/p&gt;
+
+&lt;p&gt;Our code is not yet complete. Although our person can borrow a book from the library, another event needs to happen. Once the book has been borrowed, we want the person to then have the book. So let’s write another test to ensure that our method encapsulates its full responsibility:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;should have a book after borrowing it from the library&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
+	&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;lend_book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:book&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;hannah&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:bike&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;hannah&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;borrow_book_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hannah&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;have_book&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The first line of our test is interesting. We can pass our double a hash of methods as the key, and their return values as the value. This is because we don’t expect anything here. We just want to check for its presence, that it is there. We have already tested that this method has been called. Alternatively there is a more verbose way it could be written:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:lend_book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;and_return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;So our test now expects our person to have a book, once she has borrowed it. &lt;/p&gt;
+
+&lt;p&gt;To make our test pass: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lend_book&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Why does this make our test pass? The answer lies in the fact that when we call the method lend_book on the library, the library will return a book to the person. The book that has been lent is now the book that is possessed by the person, and is thus the instance variable of book. &lt;/p&gt;
+
+&lt;p&gt;And there you have it. &lt;/p&gt;
+
+&lt;p&gt;In summary there are three main advantages to using doubles:
+1. We can test the integrity of the class without being concerned that some of the behaviour is being cause by interactions with other classes. 
+2. We can design how our various classes interact without having to create them all at once. 
+3. Developers can work in a methodological manner, independently &lt;/p&gt;
+
+&lt;p&gt;Hannah :) &lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/17/testing-doubles/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/17/testing-doubles/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Red Green Refactor</title>
+        <description>&lt;p&gt;Test-driven development is the practice that involves writing tests before writing the code that is being tested. The test will inevitably fail because no code has yet been written. The developer should watch the test fail, because if it does not fail, it could indicate that some unexpected interaction is affecting your code. After having watched the test fail, you should write the minimum amount of code that will make it pass. Personally, it is this part of the process is, that I found hardest to get my head around, and so I will try to explain it using a simple example. &lt;/p&gt;
+
+&lt;p&gt;Let me try to write a software programme that can play the game FizzBuzz. I will use the Ruby testing framework, RSpec to write my unit tests. &lt;/p&gt;
+
+&lt;p&gt;The rules of the game are as follows: players count up to a hundred sequentially, each person saying one number. However, there is a catch. If the number is divisible by three, the player must say ‘Fizz’ instead of saying the number. If the number is divisible by five, the player must say ‘Buzz’ instead of saying the number. If the number is divisble by both three and five, the player must say ‘FizzBuzz’. &lt;/p&gt;
+
+&lt;p&gt;So where should we start? &lt;/p&gt;
+
+&lt;p&gt;First of all, our programme should know whether a number is divisible by three or not. So let’s write a test. In our test we will set an expectation, of what we want to happen when we do something. We could write a test that looks something like this&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;should know that 3 is divisible by three&amp;#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_divisible_by_three?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This test will inevitably fail, because there is no method ‘is_divisible_by_three?(number)’ yet. At each stage we do the minimum we can. So at this stage, we just want to change the error message that we receive when we run the test. We can go ahead and address the error message telling us there is no such method by creating a method. In Ruby this is done like so:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_divisible_by_three?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;There we have defined our method. But the test will still fail because our expectation was that the boolean value of true would be returned. Instead, we received nil. The next step would be to address this next error message. The simplest code that would make this pass would be to make the method return true. We could write something like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_divisible_by_three?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This now makes our test go green. However, this seems counter-intuitive. We know that this method will not actually handle the responsibility that we want it to, it will always return true to us. If we are writing software in a way that is driven by the tests, we will solve our problem by writing our next test, rather than just simply writing the code to handle the responsibility. Good test driven development requires the developer, therefore, to be able to identify the edge cases and the bugs, and write tests to ensure that the programme deals with them correctly.&lt;/p&gt;
+
+&lt;p&gt;Our next test could look something like this: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;should know that 1 is not divisible by three&amp;#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_divisible_by_three?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We are now forced to update the method is_divisible_by_three?(number) to be able to handle both true and false occurences so that both of the tests will pass. &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_divisible_by_three?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The final stage in the test-driven development framework is refactoring the code. Refactoring is the process of changing the design of the code without changing its external behaviour. A common reason for refactoring can be because of repetition in your code. A prevalent principle in software development is the ‘Don’t Repeat Yourself’ or DRY principle. This principle states that &lt;em&gt;“Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.”&lt;/em&gt; If the code is repetitive it can be hard to maintain, and could contain bugs and logical contradictions that will be harder to spot. &lt;/p&gt;
+
+&lt;p&gt;In our FizzBuzz programme there will be quite a bit of repetition. We will have three methods that will tell us whether a number is divisible by 3, 5 or 15. You can see how similar they look here:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_divisible_by_three?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_divisible_by_five?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_divisible_by_fifteen?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point, we should think about refactoring our code, and extracting the commonalities between these methods into a different method. The only thing that is changing between these three methods is the value of the divisor. &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_divisible_by?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;divisor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;divisor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We could then update each of our methods using our new common method.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_divisible_by_three?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;is_divisible_by?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The refactoring stage is an important one, but one that is all too easy to skip over. As I have discovered, it is massively exciting to get the test to go green, and then there is the urge to move with the flow and get on to writing the next test. One of the challenges that I am trying to undertake as I gain more experience, is to be able to spot where my code needs refactoring, and to clean up my code so that it is more readable and DRY. &lt;/p&gt;
+
+&lt;p&gt;The greatest hurdle for tech newbies, at least I found, is that it is incredibly tempting to just write the method the way you think it should be. It can take a lot of brain power to decide where to start with writing the test and it is tempting to be lazy. What I found helpful in overcoming this problem, is thinking of the test as a way of designing the code rather than just being a test to pass. I always ask myself the ‘given, when, then’ questions. Firstly, what is the current state of the programme. Secondly, what is going to occur. Thirdly, when that has occurred, what do I expect to happen. Not all tests will have all of these stages, but asking myself these questions, and writing the test out in psuedo-code has been mighty helpful! &lt;/p&gt;
+
+&lt;p&gt;If test-driven development is carried out properly, the design of the programme is emergent rather than planned. This allows for flexibility and clean design but also raises some issues. Firstly, we have to be careful to ensure that we test for all possible edge cases. Secondly, when we test each unit, we create dependencies in our tests that rely on them being a certain structure. For example, say we have created a test that expects a certain object to be an array. If our design emerges in a different path than expected, and guides us to change our data structure a hash instead of an array, some of our tests will break despite the behaviour of the programme not having changed. Problems can arise when we test what an object &lt;em&gt;is&lt;/em&gt; rather than what an object &lt;em&gt;does&lt;/em&gt;. &lt;/p&gt;
+
+&lt;p&gt;Enter behavioural-driven development and acceptance testing. BDD emphasises the behaviour of a system, rather than how it works. The mantra goes something like ‘if it walks like a duck, and talks like a duck, it is a duck’. Our acceptance tests care that it &lt;em&gt;behaves&lt;/em&gt; like a duck rather than &lt;em&gt;is&lt;/em&gt; a duck. ‘Given’, ‘when’ and ‘then’ are at the heart of the BDD framework, allowing meaningful conversations to take place between clients and developers. Clients understand the behaviour of their product extremely well, even if they wouldn’t know how to build it. The language used by Cucumber, the BDD framework language, gives clients the opportunities to express their desires for the product in a language that is close to English. Once the acceptance tests for one feature are written and are failing, the developer can then drop down into the unit testing to create tests to ensure that the internals of that feature work correctly. The red, green, refactor cycle will still be used to write the code that eventually makes both the unit and acceptance tests pass. This process is known as outside-in development. &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://hanwax.github.io/assets/tdd_flow.png&quot; alt=&quot;TDD&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To summarise:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Acceptance testing is all about the behaviour of an object and is carried out first. Watch the acceptance test fail before dropping down into unit testing.&lt;/li&gt;
+  &lt;li&gt;Unit testing is then used to test and design the internal workings of the system. Write a failing test, make it pass, refactor until the acceptance test passes.&lt;/li&gt;
+  &lt;li&gt;Repeat the process&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Hannah :) &lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/17/testing/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/17/testing/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>On pair programming</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://hanwax.github.io/assets/pear_programming.png&quot; alt=&quot;Pear programming&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At Makers, pair programming is very much encouraged and is what I spend most of my time doing. At its core pair-programming is when two developers work together at one workstation. They take it in turns to drive and navigate. The driver writes the code whilst the navigator directs the driver, checking the code for mistakes and identifying potential problems or issues that need to be addressed. &lt;/p&gt;
+
+&lt;p&gt;I’m a big proponent of pairing. I find the process of verbalising problems helps me half way to solving them. Moreover, as I am such a newbie, if I was working by myself I would find myself bashing my head against a wall all too often. (Definitely better for two of us to be bashing our heads against the wall!) Having a second perspective with a different approach to the problem is massively helpful. Also, as I’ve discovered over the past couple of months, computers are devilish pedants. They are worse than your friend who corrects you everytime you say ‘who’ instead of ‘whom’. Having someone to spot a stray ‘s’ or missing full-stop can save you a lot of agony when trying to debug.&lt;/p&gt;
+
+&lt;p&gt;Pair-programming reminds me of the ancient Jewish tradition of studying texts, such as the Talmud &lt;em&gt;b’chavruta&lt;/em&gt;, in pairs. This methodology is one in which students learn in pairs, discussing and debating a shared text. Similar to the driver, navigator set up, often one member of the pair will read, whilst the other pair tries to explain what has been read. The ideas in the texts are challenging to understand, and are there to be challenged. When thinking about ideas yourself, you often just reinforce your already formed views. Being challenged is not a comfortable place to be, but it is an important process to go through. Likewise pair-programming is uncomfortable in many situations because you have to expose your thought process, and therefore your vulnerabilities to your pair. Sometimes you have to admit that you don’t know something, or that your understanding might not be correct. But I believe that this is the way that I will become a better thinker and developer. In programming, especially Ruby, there is never just one way of doing something. Having another perspective I have found to be invaluable. &lt;/p&gt;
+
+&lt;p&gt;Yet there seems to be a growing dissatisfaction amongst our cohort with pairing. Around week 5 we were learning around 3 new technologies and testing frameworks I found it extremely difficult to pair. It was hard not to feel swamped by the sheer volume of new information being thrown at us. I just wanted to sit down with a book and the internet to begin to try to get to grips with it all before even attempting to start the project of getting our game of battleships online. One of the main problems seems to be that sometimes you just need time to think for yourself and to be able to process something at your own speed. Last week, ASOS very kindly came in to pair-programme with us, but I can tell you it is far from easy trying to think with someone watching you! However, I have found that good pairs are the ones in which I have space to think things through, and rather than being a hindrance, my pair has built upon my thought process and helped me to develop it. There is always going to be a balance when learning something completely new as to how much time you need to get to grips with the idea before you can start doing, but I think the role for pairing is always there.  &lt;/p&gt;
+
+&lt;p&gt;Some people have learnt with the same &lt;em&gt;chavruta&lt;/em&gt; for years. Clearly some pairs are hugely beneficial. Unfortunately not all pairs will work, or enhance learning. There has to be a mutual understanding of the purpose of the pair, and each pair must give the other person space to think, instead of scaring and stifling their thought process. I have been so lucky to have found so many brilliant people in our cohort who have put up with me, and given me that space to think and to grow my understanding in a way which I doubt would have been possible working by myself. For that, I am deeply grateful. &lt;/p&gt;
+
+&lt;p&gt;Hannah :)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/17/on-pair-programming/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/17/on-pair-programming/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Life at Makers</title>
+        <description>&lt;p&gt;Makers has been simultaneously one of the most fun and challenging things that I have undertaken. It is a fairly unique learning environment, where there is a strong emphasis on learning by doing and Googling, as well as learning from your peers (from whom I have picked up a huge amount!). Although there are two, albeit very informative and useful, lectures a day, where the key concepts are covered, the bulk of our time is spent working on the weekly projects in pairs. Our weekly projects have ranged from building the Boris Bikes software system, to building a clone of Yelp!. I do believe that learning by doing is the best way to really get to grips with something, but it is hard not to feel completely swamped at times, especially when you feel like you are so far out of your depth that you don’t even know where to start!&lt;/p&gt;
+
+&lt;p&gt;On the plus side, I feel like there are particular areas in which I feel some real tangible improvements. I think one of the best things that I have got out of Makers is attention to detail and patience, especially with regards to learning to read error messages. I know that sounds silly, but at the beginning this was the part I struggled with most. When there were bugs in the programme, or my RSpec test failed, I would try and fix the problem without looking at the hints that the computer was giving me. Computers are great at telling you exactly what the problem is if you take time to read and understand it. Having the patience and understanding to decipher the error messages is a skill I’m still working on, but one that I am definitely getting better at. Oh, and also, sometimes all it requires is a restart. There have been a few too many moments when I have had an unusual and unexpected error message, and tried to ask around if anyone could fix it, only to be fixed in about 30 seconds by Alex simply refreshing or restarting the laptop! &lt;/p&gt;
+
+&lt;p&gt;The pace of learning has not stopped accelerating and it’s often hard to catch a moment to go over and revise what I have learnt. When I do have time to rewatch the screencasts from the lectures it is amazing how much more sense things make a second time round, especially after having spent some time using the technology. Ideally I think it was be helpful to try and build a little side project app that employs the use of the technologies that we are learning that week, but it is often hard to find the time. In week 7, Nikesh and I started a little side project to try and get to grips with using APIs. We used a recipe searcing API from the website Yummly. Now we understand how to access the data, we are looking at ways to migrate the project on to Rails with some added functionality. &lt;/p&gt;
+
+&lt;p&gt;Although it can be hard to find time to go over and revise the week’s project, Friday is test day and that often means being set a test that mirrors what we have learnt that week. One of my favourite challenges was building a Twitter clone using databases and Postgres. During that week we had been building a bookmark manager website, which is built in a manner not dissimilar to Twitter. I found that challenge so incredibly useful for deepening my understanding of everything covered that week. &lt;/p&gt;
+
+&lt;p&gt;A really great initiative that Makers have just introduced is mentoring. Makers alumni who are currently working as junior developers come in some evenings and help us with essentially whatever we would like to go over. My mentor, Margo, who is a Rails developer at Mint Digital, came in to Makers last Wednesday evening and showed us a Rails project she has been working on, tools she uses for debugging, and how she uses Github in the working world. It was really awesome to be able to recognise some similar features that we had in our own apps and to hear her about her Makers journey. She had a pretty impressive front-end Twitter clone…got to get to work on mine! &lt;/p&gt;
+
+&lt;p&gt;Don’t worry guys, it’s not all work and no play. As in all good tech environments, I’ve had my fair share of time on the table tennis table. Last Thursday, the office on the floor below us had a summer party and invited us all. They threw a great party! We’ve also had some pretty awesome lunchtime talks from the likes of Open Table, Compare the Market and Softwire. Tim Perry from Softwire spoke to us about the importance of open-source, a really interesting topic on which I hope to write a blog post in the near future…&lt;/p&gt;
+
+&lt;p&gt;Hannah :)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/17/life-at-makers/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/17/life-at-makers/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>A brief guide to tech terms</title>
+        <description>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Technical term&lt;/th&gt;
+      &lt;th&gt;Definition&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Acceptance testing&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;This is the idea of testing the software system from the consumer’s point of view. The consumer doesn’t care exactly how the software works, it just cares that it behaves in line with expectations.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Agile methodology&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;It is a philosophy, a way of creating software that emphasises individuals and interactions over processes and tools, working software over comprehensive documentation, customer collaboration over contract negotiation and response to change over following a plan&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Array&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;An array holds an ordered list of values, which can be any type of object including other arrays. Arrays are demarcated with square brackets, and a comma between each element. Any element within that list can be accessed by referencing its index. The first element in the array is at index 0.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Boolean&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Either a true or false value&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Classes&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;These are used to defined clusters of behaviour. If I were describe a software system such as an airport control system, the nouns in my description would typically form the basis of the classes. For example, I would have an airport class and an airplane class. Each class describes the ideal behaviour of an object. You can create individual instances of the class which possess that behaviour. If human were a class, then I, Hannah, would be an instance of the class human.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cucumber&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;An acceptance testing framework, that is written in language much like English. It uses the structure of ‘given, when, then’, allowing clients to specify to the developers exactly how they want the user to experience the software. For example, if we were testing that a customer can add items to their shopping basket when on a particular website, the test would read something like ‘Given that I am on the homepage, when I click on the button ‘Add Item to Basket’, then I should have one item in my basket.’&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Extreme programming&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Emphasises responsiveness to customer requirements, pair-programming and frequent releases of software in short development cycles&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Fixnum&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;An integer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Floats&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;A number with a decimal point&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;A version control system. Which means absolutely nothing if you are not a programmer. It is far more complex than this, but I find it easiest to think of as being like Dropbox for code. I can upload the code from my local machine to the Github website, and then access it from anywhere. However, I won’t just upload a finished code script. I will usually upload it at frequent intervals, for example when I have completed a certain feature. I can then access all previous versions of my code. All my code on Github is open-source, meaning anyone else can download it to their local machine and work on it/edit it themselves. Github has several brilliant features that allow multiple people to work on one code base, and is great when collaborating on projects.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hashes&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Hashes are like arrays in that they contain multiple elements, but the elements are grouped into key-value pairs. This is best illustrated with an example. If I created a hash to store pets, my key could be the type of pet e.g. a cat or dog, and the value could be the name of my pet. pets = {cat: ‘Fluffy’, dog: ‘Oscar’}. They are demarcated with curly braces, and a colon after the key.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Interactive ruby console (irb)&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;This is a tool that executes Ruby code in the terminal with immediate response, allowing you to play in real-time. To access it you just type ‘irb’ into your terminal. If I want to see how a particular method would behave, instead of writing it in my text editor and running the programme, I can try it out in irb.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Methods are code that are used to group repeatable statements into a single unit. Ruby ships with many in-built methods. A nice example is the ‘length’ method, that will return the length of a string to me when I invoke it. I can also write my own methods.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Objects&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Every object is an instance of a class. Whilst objects inherit certain characteristics from their class, they can adopt behaviours that are external to their class too.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;RSpec&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;RSpec is the Ruby unit testing framework. Well designed RSpec tests will read much like English.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;String&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;These are usually words and sentences within the programme. They are enclosed by quotation marks&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Sublime Text&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The text editor that I use. It’s the equivalent of Microsoft Word for code writing.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Terminal/ command line&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;A way for the user to interact with the computer programme by typing in commands. For example, I frequently use the command line to create and navigate through my folders and files. If you are using a Mac, you can access it by searching for ‘terminal’ in Spotlight.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Test driven development (TDD)&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The idea of writing a test for a piece of code before writing the code itself. The test I write will contain an expectation for a particular occurance or state of an object. For example, if I expect my code to know whether a number is divisible by 3, I could write a test that will expect ‘true’ to be returned when I pass the number 3 into my piece of code.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Unit testing&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;This tests that each part of the software works in the way that we expect it to. This is much like testing the engine of a car. As developers, we want each part of the system to be working as we expect.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+</description>
+        <pubDate>Sat, 16 Aug 2014 23:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/16/tech-terms/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/tech-terms/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>SOLID Principles</title>
+        <description>&lt;p&gt;The SOLID principles lie at the heart of object-oriented design and exist to help you to design software that is robust and limited in bugs. My favourite principle is the single responsibility principle because I find it the most intuitive. I am still getting to grips with the practical implications of some of the principles, in particular the dependency inversion principle, and trying to incorporate them into the design of the projects. If anyone has any useful examples I would really appreciate hearing your thoughts!&lt;/p&gt;
+
+&lt;h3 id=&quot;single-responsibility-principle&quot;&gt;Single responsibility principle&lt;/h3&gt;
+
+&lt;p&gt;The single responsibility principle states that each object should have one responsibility only, and that responsibility should be entirely encapsulated by that class. This doesn’t mean that each class contains only one method, but that all methods are connected to the primary function of the class. If we think about our Battleships game, we gave our cell class the single responsibility of knowing its status. This included knowing whether it had been previously attacked or not, and whether it was occupied or empty. The idea behind this is that when a class has more than one responsibility, the likelihood of change to that class occurring is relatively high. Every time a class is changed, the risk of introducing bugs increase. In our design we can encourage tight cohesion but loose coupling by sticking to the SRP. Tight cohesion relates to how strongly related and focused the responsibilities are. Coupling is the degree to which one class/module relies on an other. If there is tight coupling, changes to one part of the programme are more likely to affect the behaviour of other parts in unexpected ways and more bugs will be introduced. &lt;/p&gt;
+
+&lt;h3 id=&quot;openclosed-principle&quot;&gt;Open/closed principle&lt;/h3&gt;
+
+&lt;p&gt;The open/closed principle states that software entities should be open for extension but close for modificiation. The closed part of the principle refers to the fact that once a class is pushed to development, and has been tested, it should only be modified to deal with bugs. However, the open part refers to the fact that a class can be open for extension to introduce new functionality. This should only be done by adding new code to the existing code base. This reduces risk of new bugs being introduced by limiting changes made to existing code. &lt;/p&gt;
+
+&lt;h3 id=&quot;liskov-substitution-principle&quot;&gt;Liskov substitution principle&lt;/h3&gt;
+
+&lt;p&gt;Liskov substitution principle states that subtypes must be substitutable for their base types. This principle goes to the heart of any class inheritance chain. If you write a class that uses a parameter or variable of some base class, then you should be able to pass an instance of some descendant class into the base class and the behaviour should remain exactly the same. This can be illustrated with a simple example. Let’s say we have a base class of a bird, that has a method that allows it to fly. Then we create a descendant duck class. The duck class has a method fly that overrides that method pertaining to how birds fly. Then an ostrich sub-class is created. Although an ostrich instance is substitutable for a bird instance - its introduction causes breaking change to every instance where a bird is asked to fly. It breaks the Liskov substitution principle because it introduces new behaviour into existing code by writing a descendant of the base class. To solve this, one might suggest the rewriting of the base class, our bird class. However, if you were to do this you If you would be breaking the Open/Close principle.&lt;/p&gt;
+
+&lt;h3 id=&quot;interface-segregation-principle&quot;&gt;Interface segregation principle&lt;/h3&gt;
+
+&lt;p&gt;This principle states that classes that implement interfaces, should not be forced to implement methods that they do not use. Often when you create a class with a large number of methods and properties, the class is used by other types that only require access to one or two such methods. The classes become more tightly coupled as the number of methods they incorporate grows. In accordance with the ISP, large should classes implement multiple smaller interfaces that group functions according to their usage. &lt;/p&gt;
+
+&lt;h3 id=&quot;dependency-inversion-principle&quot;&gt;Dependency inversion principle&lt;/h3&gt;
+
+&lt;p&gt;This principle states that high-level modules should not depend upon low-level modules, both should depend upon abstractions. Unlike what many people would assume, this principle inverts the idea that higher-level components should be dependent upon lower-level modules. Instead, both of them should depend upon the same abstraction.  Abstractions should not depend on details, but details should depend upon abstractions. &lt;/p&gt;
+
+&lt;p&gt;Hannah :)&lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Aug 2014 00:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/16/solid-principles/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/solid-principles/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Object-oriented Programming</title>
+        <description>&lt;p&gt;Oracle defines object-oriented programming as a method of programming based on a hierarchy of classes, and well-defined and cooperating objects. A class is a structure that models the data and the methods that can be called on that model. Relationships between objects can be created and objects can inherit characteristics from other objects. A principal advantage of object-oriented programming is that this design enables developers to create modules and classes that do not need to be changed when a new type of object is added. A new object that inherits many of features of an existing object can simply be created. This makes the programme easier to modify without breaking and or having to rebuild it in its entirety. &lt;/p&gt;
+
+&lt;p&gt;I found this concept fairly hard to get my head around until I started building projects using OOP principles. So let’s have a look at an example in the wild. The first step in creating a well-designed OOP software project lies in writing out a description of the software programme that we want to create in order to identify what classes we are going to need. One of the first OOP projects we worked on was building a Battleships programme, so I’ll use this as a starting point. &lt;/p&gt;
+
+&lt;p&gt;Our description of the game:&lt;/p&gt;
+
+&lt;p&gt;“Battleships is a two &lt;strong&gt;player&lt;/strong&gt; &lt;strong&gt;game&lt;/strong&gt;. Each player deploys 5 &lt;strong&gt;ships&lt;/strong&gt; on a 10 x 10 &lt;strong&gt;grid&lt;/strong&gt;. Each &lt;strong&gt;cell&lt;/strong&gt; has a unique grid reference. Each player takes &lt;em&gt;turns&lt;/em&gt; to call out a grid reference and the other players confirms whether it is a &lt;em&gt;‘hit’&lt;/em&gt; or &lt;em&gt;‘miss’&lt;/em&gt; if a ship is at that grid reference or not. The attacking players marks the ‘hit’ or ‘miss’ on their tracking grid. The defending player marks ‘hit’ or ‘miss’ on their primary grid. Players alternate turns. When every cell that comprises one ship has been ‘hit’, the defending player declares it &lt;em&gt;sunk&lt;/em&gt;. When a player sinks all their opponent’s ships they &lt;em&gt;win&lt;/em&gt; and the game ends.””&lt;/p&gt;
+
+&lt;p&gt;The first job is to highlight the nouns and verbs in the descriptions. The nouns will form the basis of the classes in your model, whilst the verbs describe the responsibility that each class has. In extreme-programming class-responsibility-collaboration cards are used as a brainstorming tool. Each class is written on an index card. Then for each class, the responsibilities of that class along with the collaborators are recorded. Therefore, with regard to the battleships programme that we were building, we had highlighted our player as a noun, thus indicating that we wanted to make our player a class of its own. We gave the player two responsibilities. The first was that the player was responsibile for deploying ships to the grid. The second responsibility of the player class was to possess a grid. The collaborators involved were the ship and the grid respectively.&lt;/p&gt;
+
+&lt;p&gt;As we soon discovered in our team of four, there are any number of ways to model the data and to divvy up the various responsibilities! Whilst we made many mistakes, there were several key lessons learnt. Firstly, it is a useful process to discuss how you want to model the programme, but this does not mean that the design should be set in stone from the outset. We encountered places where other models would have worked better, and we adapted our original description to fit that. Secondly, the more classes and object-oriented the programme is, the easier it was to model. In our oirignal discussion we had decided that ‘hit’ and ‘miss’ were attributes that belonged to our cell class. However, as we were writing the programme, it became clear that having individual ‘hit cell’ and ‘miss cell’ classes made our game easier to play and gave way to a better design. &lt;/p&gt;
+
+&lt;p&gt;Well designed object-oriented software follows the SOLID principles:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Single responsibility principle&lt;/li&gt;
+  &lt;li&gt;Open/closed principle&lt;/li&gt;
+  &lt;li&gt;Liskov substitution principle&lt;/li&gt;
+  &lt;li&gt;Interface segregation principle&lt;/li&gt;
+  &lt;li&gt;Dependency inversion principle&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;But these deserve a blog post of their own. &lt;/p&gt;
+
+&lt;p&gt;Hannah :) &lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Aug 2014 00:00:00 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/16/object-oriented-design/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/object-oriented-design/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Hello, World!</title>
+        <description>&lt;p&gt;Gosh, it’s taken me just about 8 weeks to sit down and actually write this first post. But better late than never, right? &lt;/p&gt;
+
+&lt;p&gt;These past 8 week at Makers Academy have been a real whirlwind, with little time/head space for much else other than code. So firstly, I would like to apologise for being rubbish at replying/being in contact over this summer :(&lt;/p&gt;
+
+&lt;p&gt;I decided to write this blog for several reasons. Often I get asked what I do at Makers Academy, and so I thought it would be good to write a little about what life is like there. Also, as I am encountering and learning so much new stuff, I have often found that the best way to get to grips with things is by explaining key concepts and methodologies by writing them down. I hope in the process that I can help other people understand them better too. I really appreciate comments and feedback, so if anything is unclear, or could be explained in a more intuitive manner, please do not hesitate to get in contact!&lt;/p&gt;
+
+&lt;p&gt;It’s fairly tough to explain to friends and family exactly what it is I am doing without using techinical terms and jargon. Although the blog will be somewhat on the technical side, I have written a brief guide to tech terms to explain some of their usage. In this way I hope my blog will be accessible to my friends and family too (should you wish to have a read - no obligation!) &lt;/p&gt;
+
+&lt;p&gt;One of the things that I love about the tech world is the quirky names and conventions for stuff. From Cucumber, to Capybara to spies, you’re never really sure what reality you are in. But you just go along with it. Anyway, one of my favourite conventions is the ‘Hello, World!’ convention. The first encounter that anyone has with programming is traditionally writing a ‘Hello World’ programme - that is, a programme that outputs the string ‘Hello, World!’&lt;/p&gt;
+
+&lt;p&gt;In Ruby this is fairly simple. All you need to do is &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Hello, World!&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In honour of this convention, I have called my blog ‘Hello, World’. This is my ‘Hello, World’, to the world of tech. &lt;/p&gt;
+
+&lt;p&gt;Hannah :) &lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 15 Aug 2014 18:55:32 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/15/first-post/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/15/first-post/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

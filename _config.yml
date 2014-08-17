@@ -1,0 +1,14 @@
+# Site settings
+title: Hello World
+email: hannah.waxman8@gmail.com
+description: "Hi, I'm Hannah! I recently graduated from Cambridge with a degree in Bio Anthropology and Business. I'm currently learning to code at Makers Academy, a webdev bootcamp in London, and absolutely loving it! Please get in touch if you have any questions."
+baseurl: ""
+url: "http://hanwax.github.io"
+twitter_username: hannahwaxman
+github_username:  HanWax 
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+

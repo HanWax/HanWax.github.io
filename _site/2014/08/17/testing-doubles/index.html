@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Testing doubles - mocks and stubbing</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Hi, I'm Hannah! I recently graduated from Cambridge with a degree in Bio Anthropology and Business. I'm currently learning to code at Makers Academy, a webdev bootcamp in London, and absolutely loving it! Please get in touch if you have any questions.">
+    <link rel="canonical" href="http://hanwax.github.io/2014/08/17/testing-doubles/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/">Hello World</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a class="page-link" href="/about/">About me</a>
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <h1>Testing doubles - mocks and stubbing</h1>
+    <p class="meta">Aug 17, 2014</p>
+  </header>
+
+  <article class="post-content">
+  <p>In well designed software each class will have a single responsibility. However, in software systems, the various classes that make up the system will need to interact with each other. When test-driving the code for each class, these interactions will need to be taken into account. The Chicago school, also known as the classical school, tests these interactions by creating real instances of each class. There are several problems that can arise as a result of using real instances of other classes in tests. These problems are easiest illustrated with an example, alongside the alternative approach of using doubles as advocated by the London school. The purpose of using doubles in testing is much like the reason why stunt doubles are used in films. Stunt doubles are used to undertake dangerous or risky parts of films, in which it is not necessary for the credibility of the film to have the real actor. Likewise, doubles are used in tests because it is not necessary for the validity of our unit tests to ensure that the interactions between our various classes work in a particular way. We just want to test that they happen. </p>
+
+<p>So let’s begin our example. I’ll talk you through the creation of a simple software system that allows you to borrow books from a library. To start with, I would write out a simple description of my system in order to identify the various classes that I will need to create. </p>
+
+<p>Description: we are building a system that manages <em>books</em> that can be borrowed by <em>people</em> from a <em>library</em> and returned after they have been read. The books can be lost when they are in the user’s possession, in which case they will not be available for further borrowing.</p>
+
+<p>I have italicised all the nouns in my description, as I will take these as my starting point for my classes. Say I am working collaboratively on this project, and it has been decided that I will create the person class, whilst another member of the team will start to work on the book class. </p>
+
+<p>Let’s start thinking about our person class in terms of what responsibilities the person will have. When writing my first test, I always want to start with the simplest scenario: a person can have a book. In my first test, I would expect that upon initialisation, a person doesn’t have a book. Let’s write our test. </p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">it</span> <span class="s1">&#39;should not have a book upon initialisation&#39;</span> <span class="k">do</span> 
+	<span class="n">hannah</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span>
+	<span class="n">expect</span><span class="p">(</span><span class="n">hannah</span><span class="p">)</span><span class="o">.</span><span class="n">not_to</span> <span class="n">have_book</span>
+<span class="k">end</span></code></pre></div>
+
+<p>RSpec will complain at me that there is no method has_book?</p>
+
+<p>So let’s go ahead and create it</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">has_book?</span>
+<span class="k">end</span></code></pre></div>
+
+<p>The test still fails because it expected ‘false’ but received ‘nil’. The simplest way to make this test pass would be to pass in the value false. Baby steps, remember. </p>
+
+<p>Our method is not yet robust enough as it doesn’t actually account for the responsibility that we want it to. The next step therefore would be to write another test.</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">it</span> <span class="s1">&#39;should have a book when given a book&#39;</span> <span class="k">do</span> 
+	<span class="n">hannah</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:book</span><span class="p">)</span>
+	<span class="n">expect</span><span class="p">(</span><span class="n">hannah</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">have_book</span>
+<span class="k">end</span></code></pre></div>
+
+<p>Let’s just have a closer look at what we did there. This is our first use of mocking. We gave the person a book as a symbol. This is not a real instance of the book, in reality we could put anything we like there. It doesn’t even have to be a symbol. We are just testing that the person receives <em>something</em>. We have made it a symbol of a book to remind ourselves, and the people that we are working with, that once the system is wired together, we will ensure that a person can only borrow a book and not some other class. So why did we mock this instead of checking whether the person received a real book? <strong>We want to avoid pollution in our code.</strong> As an analogy, if we were testing how a particular gas behaved, we would test it in a vacuum rather than in air. If we tested it in the air, the behaviour would be obscured by its interactions with oxygen, nitrogen and other elements. So too with our code. We want to test our person class in isolation, to ensure that the person behaves as it should do. There could be errors in the code base of the book class which obscure the behaviour of our person class if we use a real instance of a book. By keeping each class separate we can test that each class behaves as it should and thus debugging becomes far more manageable. Moreover, if we were not using doubles at this point, I would have to go and create my book class and develop it up to the point where the interaction could occur. This would make working independently all the more difficult.  </p>
+
+<p>Now RSpec will complain to us that there are the wrong number of arguments. It expected zero arguments, but received one.  We can fix this by initialising our Person class with a book. </p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialise</span><span class="p">(</span><span class="n">book</span><span class="o">=</span><span class="kp">nil</span><span class="p">)</span>
+	<span class="vi">@book</span> <span class="o">=</span> <span class="n">book</span>
+<span class="k">end</span> 
+
+<span class="k">def</span> <span class="nf">has_book?</span>
+	<span class="o">!</span><span class="vi">@book</span><span class="o">.</span><span class="n">nil?</span>
+<span class="k">end</span></code></pre></div>
+
+<p>Here we have initialised our person with a book, and set the default value to nil, so that a person doesn’t have a book when initialised, unless we give her one. Now both our tests our passing.</p>
+
+<p>Our next step might be to design the code for borrowing of the books from the library. </p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">it</span> <span class="s1">&#39;should be able to borrow a book from the library&#39;</span> <span class="k">do</span> 
+	<span class="n">library</span> <span class="o">=</span> <span class="n">double</span> <span class="ss">:library</span>
+	<span class="n">hannah</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:bike</span><span class="p">)</span>
+	<span class="n">expect</span><span class="p">(</span><span class="n">library</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:lend_book</span><span class="p">)</span>
+	<span class="n">hannah</span><span class="o">.</span><span class="n">borrow_book_from</span><span class="p">(</span><span class="n">library</span><span class="p">)</span>
+<span class="k">end</span></code></pre></div>
+
+<p>And our code to make it pass would look something like this.</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">borrow_book_from</span><span class="p">(</span><span class="n">library</span><span class="p">)</span>
+	<span class="n">library</span><span class="o">.</span><span class="n">lend_book</span>
+<span class="k">end</span></code></pre></div>
+
+<p>So what is going on here? We don’t yet have a ‘lend_book’ method in our programme anywhere, so how is the code passing? What is happening in this code is pure design. We are designing and shaping how our person is going to interact with the book, because we don’t yet have a book. Pretty neat that we can design our person class and its interactions with other objects without having yet created those objects, no? Using doubles has allowed us to write our code in a methodological manner where we don’t have to keep jumping back and forth between classes.  </p>
+
+<p>Our code is not yet complete. Although our person can borrow a book from the library, another event needs to happen. Once the book has been borrowed, we want the person to then have the book. So let’s write another test to ensure that our method encapsulates its full responsibility:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">it</span> <span class="s1">&#39;should have a book after borrowing it from the library&#39;</span> <span class="k">do</span> 
+	<span class="n">library</span> <span class="o">=</span> <span class="n">double</span> <span class="ss">:library</span><span class="p">,</span> <span class="ss">lend_book</span><span class="p">:</span> <span class="ss">:book</span>
+	<span class="n">hannah</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:bike</span><span class="p">)</span>
+	<span class="n">hannah</span><span class="o">.</span><span class="n">borrow_book_from</span><span class="p">(</span><span class="n">library</span><span class="p">)</span>
+	<span class="n">expect</span><span class="p">(</span><span class="n">hannah</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">have_book</span>
+<span class="k">end</span></code></pre></div>
+
+<p>The first line of our test is interesting. We can pass our double a hash of methods as the key, and their return values as the value. This is because we don’t expect anything here. We just want to check for its presence, that it is there. We have already tested that this method has been called. Alternatively there is a more verbose way it could be written:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">allow</span><span class="p">(</span><span class="n">library</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:lend_book</span><span class="p">)</span><span class="o">.</span><span class="n">and_return</span><span class="p">(</span><span class="ss">:book</span><span class="p">)</span></code></pre></div>
+
+<p>So our test now expects our person to have a book, once she has borrowed it. </p>
+
+<p>To make our test pass: </p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@book</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">lend_book</span></code></pre></div>
+
+<p>Why does this make our test pass? The answer lies in the fact that when we call the method lend_book on the library, the library will return a book to the person. The book that has been lent is now the book that is possessed by the person, and is thus the instance variable of book. </p>
+
+<p>And there you have it. </p>
+
+<p>In summary there are three main advantages to using doubles:
+1. We can test the integrity of the class without being concerned that some of the behaviour is being cause by interactions with other classes. 
+2. We can design how our various classes interact without having to create them all at once. 
+3. Developers can work in a methodological manner, independently </p>
+
+<p>Hannah :) </p>
+
+  </article>
+
+</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Hello World</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li>Hello World</li>
+        <li><a href="mailto:hannah.waxman8@gmail.com">hannah.waxman8@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+      <ul>
+        <li>
+          <a href="https://github.com/HanWax">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">HanWax</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/hannahwaxman">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">hannahwaxman</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+      <p class="text">Hi, I'm Hannah! I recently graduated from Cambridge with a degree in Bio Anthropology and Business. I'm currently learning to code at Makers Academy, a webdev bootcamp in London, and absolutely loving it! Please get in touch if you have any questions.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>
