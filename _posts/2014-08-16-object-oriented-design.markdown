@@ -38,4 +38,4 @@ To summarise:
 
 3. Object-oriented programming is about managing the interactivity and dependencies between various objects. The objects interact by sending and receiving messages to and from each other.  
 
-Hannah :) 
+Hannah 

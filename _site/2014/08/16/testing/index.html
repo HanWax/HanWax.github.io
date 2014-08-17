@@ -61,7 +61,9 @@
   </header>
 
   <article class="post-content">
-  <p>Test-driven development is the practice that involves writing tests before writing the code that is being tested. The test will inevitably fail because no code has yet been written. The developer should watch the test fail, because if it does not fail, it could indicate that some unexpected interaction is affecting your code. After having watched the test fail, you should write the minimum amount of code that will make it pass. Personally, it is this part of the process is, that I found hardest to get my head around, and so I will try to explain it using a simple example. </p>
+  <p><img src="http://hanwax.github.io/assets/tdd_flow.png" alt="TDD" /></p>
+
+<p>Test-driven development is the practice that involves writing tests before writing the code that is being tested. The test will inevitably fail because no code has yet been written. The developer should watch the test fail, because if it does not fail, it could indicate that some unexpected interaction is affecting your code. After having watched the test fail, you should write the minimum amount of code that will make it pass. Personally, it is this part of the process is, that I found hardest to get my head around, and so I will try to explain it using a simple example. </p>
 
 <p>Let me try to write a software programme that can play the game FizzBuzz. I will use the Ruby testing framework, RSpec to write my unit tests. </p>
 
@@ -136,8 +138,6 @@
 
 <p>Enter behavioural-driven development and acceptance testing. BDD emphasises the behaviour of a system, rather than how it works. The mantra goes something like ‘if it walks like a duck, and talks like a duck, it is a duck’. Our acceptance tests care that it <em>behaves</em> like a duck rather than <em>is</em> a duck. ‘Given’, ‘when’ and ‘then’ are at the heart of the BDD framework, allowing meaningful conversations to take place between clients and developers. Clients understand the behaviour of their product extremely well, even if they wouldn’t know how to build it. The language used by Cucumber, the BDD framework language, gives clients the opportunities to express their desires for the product in a language that is close to English. Once the acceptance tests for one feature are written and are failing, the developer can then drop down into the unit testing to create tests to ensure that the internals of that feature work correctly. The red, green, refactor cycle will still be used to write the code that eventually makes both the unit and acceptance tests pass. This process is known as outside-in development. </p>
 
-<p><img src="http://hanwax.github.io/assets/tdd_flow.png" alt="TDD" /></p>
-
 <p>To summarise:</p>
 
 <ol>
@@ -146,7 +146,7 @@
   <li>Repeat the process</li>
 </ol>
 
-<p>Hannah :) </p>
+<p>Hannah </p>
 
   </article>
 

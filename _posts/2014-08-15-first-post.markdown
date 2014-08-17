@@ -22,6 +22,5 @@ puts 'Hello, World!'
 
 In honour of this convention, I have called my blog 'Hello, World'. This is my 'Hello, World', to the world of tech. 
 
-Hannah :) 
-
+Hannah 
 

@@ -26,4 +26,4 @@ This principle states that classes that implement interfaces, should not be forc
 
 This principle states that high-level modules should not depend upon low-level modules, both should depend upon abstractions. Unlike what many people would assume, this principle inverts the idea that higher-level components should be dependent upon lower-level modules. Instead, both of them should depend upon the same abstraction.  Abstractions should not depend on details, but details should depend upon abstractions. 
 
-Hannah :)
+Hannah

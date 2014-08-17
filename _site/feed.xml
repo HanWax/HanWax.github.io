@@ -5,8 +5,8 @@
     <description>Hi, I&#39;m Hannah! I recently graduated from Cambridge with a degree in Bio Anthropology and Business. I&#39;m currently learning to code at Makers Academy, a webdev bootcamp in London, and absolutely loving it! Please get in touch if you have any questions.</description>
     <link>http://hanwax.github.io/</link>
     <atom:link href="http://hanwax.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 17 Aug 2014 20:31:55 +0100</pubDate>
-    <lastBuildDate>Sun, 17 Aug 2014 20:31:55 +0100</lastBuildDate>
+    <pubDate>Sun, 17 Aug 2014 21:43:27 +0100</pubDate>
+    <lastBuildDate>Sun, 17 Aug 2014 21:43:27 +0100</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
     
       <item>
@@ -23,7 +23,7 @@
 
 &lt;p&gt;Some people have learnt with the same &lt;em&gt;chavruta&lt;/em&gt; for years. Clearly some pairs are hugely beneficial. Unfortunately not all pairs will work, or enhance learning. There has to be a mutual understanding of the purpose of the pair, and each pair must give the other person space to think, instead of scaring and stifling their thought process. I have been so lucky to have found so many brilliant people in our cohort who have put up with me, and given me that space to think and to grow my understanding in a way which I doubt would have been possible working by myself. For that, I am deeply grateful. &lt;/p&gt;
 
-&lt;p&gt;Hannah :)&lt;/p&gt;
+&lt;p&gt;Hannah &lt;/p&gt;
 </description>
         <pubDate>Sun, 17 Aug 2014 00:00:00 +0100</pubDate>
         <link>http://hanwax.github.io/2014/08/17/on-pair-programming/</link>
@@ -56,7 +56,7 @@
 
 &lt;p&gt;This principle states that high-level modules should not depend upon low-level modules, both should depend upon abstractions. Unlike what many people would assume, this principle inverts the idea that higher-level components should be dependent upon lower-level modules. Instead, both of them should depend upon the same abstraction.  Abstractions should not depend on details, but details should depend upon abstractions. &lt;/p&gt;
 
-&lt;p&gt;Hannah :)&lt;/p&gt;
+&lt;p&gt;Hannah&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Aug 2014 23:10:00 +0100</pubDate>
         <link>http://hanwax.github.io/2014/08/16/solid-principles/</link>
@@ -109,7 +109,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Hannah :) &lt;/p&gt;
+&lt;p&gt;Hannah &lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Aug 2014 23:00:00 +0100</pubDate>
         <link>http://hanwax.github.io/2014/08/16/object-oriented-design/</link>
@@ -210,7 +210,7 @@
 2. We can design how our various classes interact without having to create them all at once. 
 3. Developers can work in a methodological manner, independently &lt;/p&gt;
 
-&lt;p&gt;Hannah :) &lt;/p&gt;
+&lt;p&gt;Hannah &lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Aug 2014 22:30:00 +0100</pubDate>
         <link>http://hanwax.github.io/2014/08/16/testing-doubles/</link>
@@ -221,7 +221,9 @@
     
       <item>
         <title>Red Green Refactor</title>
-        <description>&lt;p&gt;Test-driven development is the practice that involves writing tests before writing the code that is being tested. The test will inevitably fail because no code has yet been written. The developer should watch the test fail, because if it does not fail, it could indicate that some unexpected interaction is affecting your code. After having watched the test fail, you should write the minimum amount of code that will make it pass. Personally, it is this part of the process is, that I found hardest to get my head around, and so I will try to explain it using a simple example. &lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;http://hanwax.github.io/assets/tdd_flow.png&quot; alt=&quot;TDD&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Test-driven development is the practice that involves writing tests before writing the code that is being tested. The test will inevitably fail because no code has yet been written. The developer should watch the test fail, because if it does not fail, it could indicate that some unexpected interaction is affecting your code. After having watched the test fail, you should write the minimum amount of code that will make it pass. Personally, it is this part of the process is, that I found hardest to get my head around, and so I will try to explain it using a simple example. &lt;/p&gt;
 
 &lt;p&gt;Let me try to write a software programme that can play the game FizzBuzz. I will use the Ruby testing framework, RSpec to write my unit tests. &lt;/p&gt;
 
@@ -296,8 +298,6 @@
 
 &lt;p&gt;Enter behavioural-driven development and acceptance testing. BDD emphasises the behaviour of a system, rather than how it works. The mantra goes something like ‘if it walks like a duck, and talks like a duck, it is a duck’. Our acceptance tests care that it &lt;em&gt;behaves&lt;/em&gt; like a duck rather than &lt;em&gt;is&lt;/em&gt; a duck. ‘Given’, ‘when’ and ‘then’ are at the heart of the BDD framework, allowing meaningful conversations to take place between clients and developers. Clients understand the behaviour of their product extremely well, even if they wouldn’t know how to build it. The language used by Cucumber, the BDD framework language, gives clients the opportunities to express their desires for the product in a language that is close to English. Once the acceptance tests for one feature are written and are failing, the developer can then drop down into the unit testing to create tests to ensure that the internals of that feature work correctly. The red, green, refactor cycle will still be used to write the code that eventually makes both the unit and acceptance tests pass. This process is known as outside-in development. &lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://hanwax.github.io/assets/tdd_flow.png&quot; alt=&quot;TDD&quot; /&gt;&lt;/p&gt;
-
 &lt;p&gt;To summarise:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -306,7 +306,7 @@
   &lt;li&gt;Repeat the process&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Hannah :) &lt;/p&gt;
+&lt;p&gt;Hannah &lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Aug 2014 22:20:00 +0100</pubDate>
         <link>http://hanwax.github.io/2014/08/16/testing/</link>
@@ -317,96 +317,45 @@
     
       <item>
         <title>A brief guide to tech terms</title>
-        <description>&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Technical term&lt;/th&gt;
-      &lt;th&gt;Definition&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Acceptance testing&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;This is the idea of testing the software system from the consumer’s point of view. The consumer doesn’t care exactly how the software works, it just cares that it behaves in line with expectations.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Agile methodology&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;It is a philosophy, a way of creating software that emphasises individuals and interactions over processes and tools, working software over comprehensive documentation, customer collaboration over contract negotiation and response to change over following a plan&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Array&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;An array holds an ordered list of values, which can be any type of object including other arrays. Arrays are demarcated with square brackets, and a comma between each element. Any element within that list can be accessed by referencing its index. The first element in the array is at index 0.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Boolean&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Either a true or false value&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Classes&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;These are used to defined clusters of behaviour. If I were describe a software system such as an airport control system, the nouns in my description would typically form the basis of the classes. For example, I would have an airport class and an airplane class. Each class describes the ideal behaviour of an object. You can create individual instances of the class which possess that behaviour. If human were a class, then I, Hannah, would be an instance of the class human.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Cucumber&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;An acceptance testing framework, that is written in language much like English. It uses the structure of ‘given, when, then’, allowing clients to specify to the developers exactly how they want the user to experience the software. For example, if we were testing that a customer can add items to their shopping basket when on a particular website, the test would read something like ‘Given that I am on the homepage, when I click on the button ‘Add Item to Basket’, then I should have one item in my basket.’&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Extreme programming&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Emphasises responsiveness to customer requirements, pair-programming and frequent releases of software in short development cycles&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Fixnum&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;An integer&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Floats&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;A number with a decimal point&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;A version control system. Which means absolutely nothing if you are not a programmer. It is far more complex than this, but I find it easiest to think of as being like Dropbox for code. I can upload the code from my local machine to the Github website, and then access it from anywhere. However, I won’t just upload a finished code script. I will usually upload it at frequent intervals, for example when I have completed a certain feature. I can then access all previous versions of my code. All my code on Github is open-source, meaning anyone else can download it to their local machine and work on it/edit it themselves. Github has several brilliant features that allow multiple people to work on one code base, and is great when collaborating on projects.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Hashes&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Hashes are like arrays in that they contain multiple elements, but the elements are grouped into key-value pairs. This is best illustrated with an example. If I created a hash to store pets, my key could be the type of pet e.g. a cat or dog, and the value could be the name of my pet. pets = {cat: ‘Fluffy’, dog: ‘Oscar’}. They are demarcated with curly braces, and a colon after the key.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Interactive ruby console (irb)&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;This is a tool that executes Ruby code in the terminal with immediate response, allowing you to play in real-time. To access it you just type ‘irb’ into your terminal. If I want to see how a particular method would behave, instead of writing it in my text editor and running the programme, I can try it out in irb.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Methods are code that are used to group repeatable statements into a single unit. Ruby ships with many in-built methods. A nice example is the ‘length’ method, that will return the length of a string to me when I invoke it. I can also write my own methods.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Objects&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Every object is an instance of a class. Whilst objects inherit certain characteristics from their class, they can adopt behaviours that are external to their class too.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;RSpec&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;RSpec is the Ruby unit testing framework. Well designed RSpec tests will read much like English.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;String&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;These are usually words and sentences within the programme. They are enclosed by quotation marks&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Sublime Text&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;The text editor that I use. It’s the equivalent of Microsoft Word for code writing.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Terminal/ command line&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;A way for the user to interact with the computer programme by typing in commands. For example, I frequently use the command line to create and navigate through my folders and files. If you are using a Mac, you can access it by searching for ‘terminal’ in Spotlight.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Test driven development (TDD)&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;The idea of writing a test for a piece of code before writing the code itself. The test I write will contain an expectation for a particular occurance or state of an object. For example, if I expect my code to know whether a number is divisible by 3, I could write a test that will expect ‘true’ to be returned when I pass the number 3 into my piece of code.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Unit testing&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;This tests that each part of the software works in the way that we expect it to. This is much like testing the engine of a car. As developers, we want each part of the system to be working as we expect.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+        <description>&lt;p&gt;&lt;strong&gt;Acceptance testing&lt;/strong&gt;: this is the idea of testing the software system from the consumer’s point of view. The consumer doesn’t care exactly how the software works, it just cares that it behaves in line with expectations.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Agile methodology&lt;/strong&gt;  : it is a philosophy, a way of creating software that emphasises individuals and interactions over processes and tools, working software over comprehensive documentation, customer collaboration over contract negotiation and response to change over following a plan&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Array&lt;/strong&gt;              : an array holds an ordered list of values, which can be any type of object including other arrays. Arrays are demarcated with square brackets, and a comma between each element. Any element within that list can be accessed by referencing its index. The first element in the array is at index 0.   &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Boolean&lt;/strong&gt;            : either a true or false value &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Classes&lt;/strong&gt;            : these are used to defined clusters of behaviour. If I were describe a software system such as an airport control system, the nouns in my description would typically form the basis of the classes. For example, I would have an airport class and an airplane class. Each class describes the ideal behaviour of an object. You can create individual instances of the class which possess that behaviour. If human were a class, then I, Hannah, would be an instance of the class human. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cucumber&lt;/strong&gt;           : an acceptance testing framework, that is written in language much like English. It uses the structure of ‘given, when, then’, allowing clients to specify to the developers exactly how they want the user to experience the software. For example, if we were testing that a customer can add items to their shopping basket when on a particular website, the test would read something like ‘Given that I am on the homepage, when I click on the button ‘Add Item to Basket’, then I should have one item in my basket.’&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Extreme programming&lt;/strong&gt;: emphasises responsiveness to customer requirements, pair-programming and frequent releases of software in short development cycles&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fixnum&lt;/strong&gt;             : an integer &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Floats&lt;/strong&gt;             : a number with a decimal point&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Github&lt;/strong&gt;             : a version control system. Which means absolutely nothing if you are not a programmer. It is far more complex than this, but I find it easiest to think of as being like Dropbox for code. I can upload the code from my local machine to the Github website, and then access it from anywhere. However, I won’t just upload a finished code script. I will usually upload it at frequent intervals, for example when I have completed a certain feature. I can then access all previous versions of my code. All my code on Github is open-source, meaning anyone else can download it to their local machine and work on it/edit it themselves. Github has several brilliant features that allow multiple people to work on one code base, and is great when collaborating on projects.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hashes&lt;/strong&gt;             : hashes are like arrays in that they contain multiple elements, but the elements are grouped into key-value pairs. This is best illustrated with an example. If I created a hash to store pets, my key could be the type of pet e.g. a cat or dog, and the value could be the name of my pet. pets = {cat: ‘Fluffy’, dog: ‘Oscar’}. They are demarcated with curly braces, and a colon after the key. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Interactive ruby console (irb)&lt;/strong&gt; : This is a tool that executes Ruby code in the terminal with immediate response, allowing you to play in real-time. To access it you just type ‘irb’ into your terminal. If I want to see how a particular method would behave, instead of writing it in my text editor and running the programme, I can try it out in irb. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Methods&lt;/strong&gt;             : Methods are code that are used to group repeatable statements into a single unit. Ruby ships with many in-built methods. A nice example is the ‘length’ method, that will return the length of a string to me when I invoke it. I can also write my own methods. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Objects&lt;/strong&gt;               : Every object is an instance of a class. Whilst objects inherit certain characteristics from their class, they can adopt behaviours that are external to their class too. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RSpec&lt;/strong&gt;                  : RSpec is the Ruby unit testing framework. Well designed RSpec tests will read much like English.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;String&lt;/strong&gt;                 : These are usually words and sentences within the programme. They are enclosed by quotation marks &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sublime Text&lt;/strong&gt;           : the text editor that I use. It’s the equivalent of Microsoft Word for code writing. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Terminal/ command line&lt;/strong&gt; : a way for the user to interact with the computer programme by typing in commands. For example, I frequently use the command line to create and navigate through my folders and files. If you are using a Mac, you can access it by searching for ‘terminal’ in Spotlight.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Test driven development (TDD)&lt;/strong&gt;: the idea of writing a test for a piece of code before writing the code itself. The test I write will contain an expectation for a particular occurance or state of an object. For example, if I expect my code to know whether a number is divisible by 3, I could write a test that will expect ‘true’ to be returned when I pass the number 3 into my piece of code.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Unit testing&lt;/strong&gt; : this tests that each part of the software works in the way that we expect it to. This is much like testing the engine of a car. As developers, we want each part of the system to be working as we expect.&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 16 Aug 2014 22:10:00 +0100</pubDate>
@@ -430,7 +379,7 @@
 
 &lt;p&gt;Don’t worry guys, it’s not all work and no play. As in all good tech environments, I’ve had my fair share of time on the table tennis table. Last Thursday, the office on the floor below us had a summer party and invited us all. They threw a great party! We’ve also had some pretty awesome lunchtime talks from the likes of Open Table, Compare the Market and Softwire. Tim Perry from Softwire spoke to us about the importance of open-source, a really interesting topic on which I hope to write a blog post in the near future…&lt;/p&gt;
 
-&lt;p&gt;Hannah :)&lt;/p&gt;
+&lt;p&gt;Hannah&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Aug 2014 22:00:00 +0100</pubDate>
         <link>http://hanwax.github.io/2014/08/16/life-at-makers/</link>
@@ -457,7 +406,7 @@
 
 &lt;p&gt;In honour of this convention, I have called my blog ‘Hello, World’. This is my ‘Hello, World’, to the world of tech. &lt;/p&gt;
 
-&lt;p&gt;Hannah :) &lt;/p&gt;
+&lt;p&gt;Hannah &lt;/p&gt;
 
 </description>
         <pubDate>Fri, 15 Aug 2014 18:55:32 +0100</pubDate>

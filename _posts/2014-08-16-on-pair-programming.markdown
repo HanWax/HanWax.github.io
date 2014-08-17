@@ -16,4 +16,4 @@ Yet there seems to be a growing dissatisfaction amongst our cohort with pairing.
 
 Some people have learnt with the same *chavruta* for years. Clearly some pairs are hugely beneficial. Unfortunately not all pairs will work, or enhance learning. There has to be a mutual understanding of the purpose of the pair, and each pair must give the other person space to think, instead of scaring and stifling their thought process. I have been so lucky to have found so many brilliant people in our cohort who have put up with me, and given me that space to think and to grow my understanding in a way which I doubt would have been possible working by myself. For that, I am deeply grateful. 
 
-Hannah :)
+Hannah 

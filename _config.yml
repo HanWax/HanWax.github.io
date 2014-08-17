@@ -7,8 +7,28 @@ url: "http://hanwax.github.io"
 twitter_username: hannahwaxman
 github_username:  HanWax 
 
+# comments : true
+#   provider : disqus
+#   disqus :
+#     short_name : hanwax
+#   livefyre :
+#     site_id : 123
+#   intensedebate :
+#     account : 123abc
+#   facebook :
+#     appid : 123
+#     num_posts: 5
+#     width: 580
+#     colorscheme: light
+
+#   analytics : true
+#   provider : google
+#   google : 
+#   tracking_id : 'UA-123-12'
+
 # Build settings
 markdown: kramdown
 permalink: pretty
+
 
 

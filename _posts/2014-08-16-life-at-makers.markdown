@@ -16,4 +16,4 @@ A really great initiative that Makers have just introduced is mentoring. Makers 
 
 Don't worry guys, it's not all work and no play. As in all good tech environments, I've had my fair share of time on the table tennis table. Last Thursday, the office on the floor below us had a summer party and invited us all. They threw a great party! We've also had some pretty awesome lunchtime talks from the likes of Open Table, Compare the Market and Softwire. Tim Perry from Softwire spoke to us about the importance of open-source, a really interesting topic on which I hope to write a blog post in the near future...
 
-Hannah :)
+Hannah

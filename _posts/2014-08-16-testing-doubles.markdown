@@ -112,4 +112,4 @@ In summary there are three main advantages to using doubles:
 2. We can design how our various classes interact without having to create them all at once. 
 3. Developers can work in a methodological manner, independently 
 
-Hannah :) 
+Hannah 

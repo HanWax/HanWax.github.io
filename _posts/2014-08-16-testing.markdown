@@ -106,4 +106,4 @@ To summarise:
 2. Unit testing is then used to test and design the internal workings of the system. Write a failing test, make it pass, refactor until the acceptance test passes.
 3. Repeat the process
 
-Hannah :) 
+Hannah 
