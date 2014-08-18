@@ -2,6 +2,8 @@
 layout: post
 title:  "SOLID Principles"
 date:   2014-08-16 22:10:00
+analytics: true
+comments: true
 ---
 
 The SOLID principles lie at the heart of object-oriented design and exist to help you to design software that is robust and limited in bugs. My favourite principle is the single responsibility principle because I find it the most intuitive. I am still getting to grips with the practical implications of some of the principles, in particular the dependency inversion principle, and trying to incorporate them into the design of the projects. If anyone has any useful examples I would really appreciate hearing your thoughts!

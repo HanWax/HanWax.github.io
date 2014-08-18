@@ -2,6 +2,8 @@
 layout: post
 title:  "Red Green Refactor"
 date:   2014-08-16 21:20:00
+comments: true
+analytics: true
 ---
 ![TDD]({{ site.url }}/assets/tdd_flow.png)
 

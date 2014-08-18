@@ -2,13 +2,15 @@
 layout: post
 title:  "A brief guide to tech terms"
 date:   2014-08-16 21:10:00
+analytics: true
+comments: true
 ---
 
 **Acceptance testing**: this is the idea of testing the software system from the consumer's point of view. The consumer doesn't care exactly how the software works, it just cares that it behaves in line with expectations.
 
 **Agile methodology**  : it is a philosophy, a way of creating software that emphasises individuals and interactions over processes and tools, working software over comprehensive documentation, customer collaboration over contract negotiation and response to change over following a plan
 
-**Array**              : an array holds an ordered list of values, which can be any type of object including other arrays. Arrays are demarcated with square brackets, and a comma between each element. Any element within that list can be accessed by referencing its index. The first element in the array is at index 0.   
+**Array**              : a way to hold data. Arrays hold an ordered list of values, which can be any type of object, such as numbers, strings or even other arrays. Arrays are demarcated with square brackets, and a comma between each element. Any element within that list can be accessed by referencing its index. The first element in the array is at index 0.   
 
 **Boolean**            : either a true or false value 
 
@@ -18,13 +20,15 @@ date:   2014-08-16 21:10:00
 
 **Extreme programming**: emphasises responsiveness to customer requirements, pair-programming and frequent releases of software in short development cycles
 
+**Gems**               : a Ruby programme that someone else has written and packaged so that anyone can download and use it in their own programmes. There is a gem for literally everything! 
+
 **Fixnum**             : an integer 
 
 **Floats**             : a number with a decimal point
 
 **Github**             : a version control system. Which means absolutely nothing if you are not a programmer. It is far more complex than this, but I find it easiest to think of as being like Dropbox for code. I can upload the code from my local machine to the Github website, and then access it from anywhere. However, I won't just upload a finished code script. I will usually upload it at frequent intervals, for example when I have completed a certain feature. I can then access all previous versions of my code. All my code on Github is open-source, meaning anyone else can download it to their local machine and work on it/edit it themselves. Github has several brilliant features that allow multiple people to work on one code base, and is great when collaborating on projects.
 
-**Hashes**             : hashes are like arrays in that they contain multiple elements, but the elements are grouped into key-value pairs. This is best illustrated with an example. If I created a hash to store pets, my key could be the type of pet e.g. a cat or dog, and the value could be the name of my pet. pets = {cat: 'Fluffy', dog: 'Oscar'}. They are demarcated with curly braces, and a colon after the key. 
+**Hashes**             : hashes are like arrays in that they are a way to store data and contain multiple elements, but the elements are grouped into key-value pairs. This is best illustrated with an example. If I created a hash to store pets, my key could be the type of pet e.g. a cat or dog, and the value could be the name of my pet. pets = {cat: 'Fluffy', dog: 'Oscar'}. They are demarcated with curly braces, and a colon after the key. 
 
 **Interactive ruby console (irb)** : This is a tool that executes Ruby code in the terminal with immediate response, allowing you to play in real-time. To access it you just type 'irb' into your terminal. If I want to see how a particular method would behave, instead of writing it in my text editor and running the programme, I can try it out in irb. 
 
@@ -32,7 +36,9 @@ date:   2014-08-16 21:10:00
 
 **Objects**               : Every object is an instance of a class. Whilst objects inherit certain characteristics from their class, they can adopt behaviours that are external to their class too. 
 
-**RSpec**                  : RSpec is the Ruby unit testing framework. Well designed RSpec tests will read much like English.
+**Ruby on Rails**  : web development framework for Ruby.
+
+**RSpec**                  : RSpec is a Ruby unit testing framework. Well designed RSpec tests will read much like English.
 
 **String**                 : These are usually words and sentences within the programme. They are enclosed by quotation marks 
 

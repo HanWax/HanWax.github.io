@@ -2,6 +2,8 @@
 layout: post
 title:  "Hello, World!"
 date:   2014-08-15 17:55:32
+analytics: true
+comments: true
 ---
 
 Gosh, it's taken me just about 8 weeks to sit down and actually write this first post. But better late than never, right? 

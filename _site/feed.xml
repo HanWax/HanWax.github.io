@@ -5,8 +5,8 @@
     <description>Hi, I&#39;m Hannah! I recently graduated from Cambridge with a degree in Bio Anthropology and Business. I&#39;m currently learning to code at Makers Academy, a webdev bootcamp in London, and absolutely loving it! Please get in touch if you have any questions.</description>
     <link>http://hanwax.github.io/</link>
     <atom:link href="http://hanwax.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 18 Aug 2014 01:39:31 +0100</pubDate>
-    <lastBuildDate>Mon, 18 Aug 2014 01:39:31 +0100</lastBuildDate>
+    <pubDate>Mon, 18 Aug 2014 07:24:33 +0100</pubDate>
+    <lastBuildDate>Mon, 18 Aug 2014 07:24:33 +0100</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
     
       <item>
@@ -321,7 +321,7 @@
 
 &lt;p&gt;&lt;strong&gt;Agile methodology&lt;/strong&gt;  : it is a philosophy, a way of creating software that emphasises individuals and interactions over processes and tools, working software over comprehensive documentation, customer collaboration over contract negotiation and response to change over following a plan&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Array&lt;/strong&gt;              : an array holds an ordered list of values, which can be any type of object including other arrays. Arrays are demarcated with square brackets, and a comma between each element. Any element within that list can be accessed by referencing its index. The first element in the array is at index 0.   &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Array&lt;/strong&gt;              : a way to hold data. Arrays hold an ordered list of values, which can be any type of object, such as numbers, strings or even other arrays. Arrays are demarcated with square brackets, and a comma between each element. Any element within that list can be accessed by referencing its index. The first element in the array is at index 0.   &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Boolean&lt;/strong&gt;            : either a true or false value &lt;/p&gt;
 
@@ -331,13 +331,15 @@
 
 &lt;p&gt;&lt;strong&gt;Extreme programming&lt;/strong&gt;: emphasises responsiveness to customer requirements, pair-programming and frequent releases of software in short development cycles&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;Gems&lt;/strong&gt;               :&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;Fixnum&lt;/strong&gt;             : an integer &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Floats&lt;/strong&gt;             : a number with a decimal point&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Github&lt;/strong&gt;             : a version control system. Which means absolutely nothing if you are not a programmer. It is far more complex than this, but I find it easiest to think of as being like Dropbox for code. I can upload the code from my local machine to the Github website, and then access it from anywhere. However, I won’t just upload a finished code script. I will usually upload it at frequent intervals, for example when I have completed a certain feature. I can then access all previous versions of my code. All my code on Github is open-source, meaning anyone else can download it to their local machine and work on it/edit it themselves. Github has several brilliant features that allow multiple people to work on one code base, and is great when collaborating on projects.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Hashes&lt;/strong&gt;             : hashes are like arrays in that they contain multiple elements, but the elements are grouped into key-value pairs. This is best illustrated with an example. If I created a hash to store pets, my key could be the type of pet e.g. a cat or dog, and the value could be the name of my pet. pets = {cat: ‘Fluffy’, dog: ‘Oscar’}. They are demarcated with curly braces, and a colon after the key. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hashes&lt;/strong&gt;             : hashes are like arrays in that they are a way to store data and contain multiple elements, but the elements are grouped into key-value pairs. This is best illustrated with an example. If I created a hash to store pets, my key could be the type of pet e.g. a cat or dog, and the value could be the name of my pet. pets = {cat: ‘Fluffy’, dog: ‘Oscar’}. They are demarcated with curly braces, and a colon after the key. &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Interactive ruby console (irb)&lt;/strong&gt; : This is a tool that executes Ruby code in the terminal with immediate response, allowing you to play in real-time. To access it you just type ‘irb’ into your terminal. If I want to see how a particular method would behave, instead of writing it in my text editor and running the programme, I can try it out in irb. &lt;/p&gt;
 
@@ -345,7 +347,7 @@
 
 &lt;p&gt;&lt;strong&gt;Objects&lt;/strong&gt;               : Every object is an instance of a class. Whilst objects inherit certain characteristics from their class, they can adopt behaviours that are external to their class too. &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;RSpec&lt;/strong&gt;                  : RSpec is the Ruby unit testing framework. Well designed RSpec tests will read much like English.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RSpec&lt;/strong&gt;                  : RSpec is a Ruby unit testing framework. Well designed RSpec tests will read much like English.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;String&lt;/strong&gt;                 : These are usually words and sentences within the programme. They are enclosed by quotation marks &lt;/p&gt;
 

@@ -2,6 +2,8 @@
 layout: post
 title:  "Testing doubles - mocks and stubbing"
 date:   2014-08-16 21:30:00
+analytics: true
+comments: true
 ---
 
 In well designed software each class will have a single responsibility. However, in software systems, the various classes that make up the system will need to interact with each other. When test-driving the code for each class, these interactions will need to be taken into account. The Chicago school, also known as the classical school, tests these interactions by creating real instances of each class. There are several problems that can arise as a result of using real instances of other classes in tests. These problems are easiest illustrated with an example, alongside the alternative approach of using doubles as advocated by the London school. The purpose of using doubles in testing is much like the reason why stunt doubles are used in films. Stunt doubles are used to undertake dangerous or risky parts of films, in which it is not necessary for the credibility of the film to have the real actor. Likewise, doubles are used in tests because it is not necessary for the validity of our unit tests to ensure that the interactions between our various classes work in a particular way. We just want to test that they happen. 

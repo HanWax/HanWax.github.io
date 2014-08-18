@@ -2,6 +2,8 @@
 layout: post
 title:  "On pair programming"
 date:   2014-08-16 23:00:00
+analytics: true
+comments: true
 ---
 
 ![Pear programming]({{ site.url }}/assets/pear_programming.png)
