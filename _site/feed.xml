@@ -5,8 +5,8 @@
     <description>Hi, I&#39;m Hannah! I recently graduated from Cambridge with a degree in Bio Anthropology and Business. I&#39;m currently learning to code at Makers Academy, a webdev bootcamp in London, and absolutely loving it! Please get in touch if you have any questions.</description>
     <link>http://hanwax.github.io/</link>
     <atom:link href="http://hanwax.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 18 Aug 2014 07:24:33 +0100</pubDate>
-    <lastBuildDate>Mon, 18 Aug 2014 07:24:33 +0100</lastBuildDate>
+    <pubDate>Mon, 18 Aug 2014 09:12:48 +0100</pubDate>
+    <lastBuildDate>Mon, 18 Aug 2014 09:12:48 +0100</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
     
       <item>
@@ -331,7 +331,7 @@
 
 &lt;p&gt;&lt;strong&gt;Extreme programming&lt;/strong&gt;: emphasises responsiveness to customer requirements, pair-programming and frequent releases of software in short development cycles&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Gems&lt;/strong&gt;               :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gems&lt;/strong&gt;               : a Ruby programme that someone else has written and packaged so that anyone can download and use it in their own programmes. There is a gem for literally everything! &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Fixnum&lt;/strong&gt;             : an integer &lt;/p&gt;
 
@@ -346,6 +346,8 @@
 &lt;p&gt;&lt;strong&gt;Methods&lt;/strong&gt;             : Methods are code that are used to group repeatable statements into a single unit. Ruby ships with many in-built methods. A nice example is the ‘length’ method, that will return the length of a string to me when I invoke it. I can also write my own methods. &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Objects&lt;/strong&gt;               : Every object is an instance of a class. Whilst objects inherit certain characteristics from their class, they can adopt behaviours that are external to their class too. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ruby on Rails&lt;/strong&gt;  : web development framework for Ruby.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;RSpec&lt;/strong&gt;                  : RSpec is a Ruby unit testing framework. Well designed RSpec tests will read much like English.&lt;/p&gt;
 

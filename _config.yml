@@ -10,12 +10,10 @@ github_username:  HanWax
 comments : true
 provider : disqus
 disqus : true
-short_name : hanwax
-
-
+short_name : makersblog-hanwax 
+   
 analytics : true
 provider : google
-google : 
 tracking_id : "UA-53912054-1"
 
 # Build settings
