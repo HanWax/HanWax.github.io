@@ -14,7 +14,7 @@ short_name : makersblog-hanwax
    
 analytics : true
 provider : google
-tracking_id : "UA-53912054-1"
+tracking_id : UA-53912054-1
 
 # Build settings
 markdown: kramdown
