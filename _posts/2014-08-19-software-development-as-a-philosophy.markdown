@@ -5,7 +5,6 @@ date:   2014-08-19 17:55:32
 analytics: true
 comments: true
 ---
-
 We had really impressive lunchtime talk today from Suranga Chandratillake, a current partner at the VC firm Balderton Capital, and the former CEO and founder of blinkx. 
 
 One of the coolest things he talked about was software development as a philosophy and way of life. When implementing software solutions to solve large problems, developers break down the seemingly unsolvable problem into far smaller component parts, and isolate the various issues so that they can be tackled individually.
