@@ -1,9 +1,7 @@
-2014-08-18-open-source.markdown
-
 ---
 layout: post
 title:  "On open-source software"
-date:   2014-08-18 19:00:00
+date:   2014-08-20 19:00:00
 analytics: true
 comments: true
 ---
