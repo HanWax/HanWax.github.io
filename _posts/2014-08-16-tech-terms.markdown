@@ -12,6 +12,8 @@ comments: true
 
 **Array**              : a way to hold data. Arrays hold an ordered list of values, which can be any type of object, such as numbers, strings or even other arrays. Arrays are demarcated with square brackets, and a comma between each element. Any element within that list can be accessed by referencing its index. The first element in the array is at index 0.   
 
+**Back-end development**: Developing the functionality of the app/website that the user doesn't see. It is the brain and logic behind the programme.
+
 **Boolean**            : either a true or false value 
 
 **Classes**            : these are used to defined clusters of behaviour. If I were describe a software system such as an airport control system, the nouns in my description would typically form the basis of the classes. For example, I would have an airport class and an airplane class. Each class describes the ideal behaviour of an object. You can create individual instances of the class which possess that behaviour. If human were a class, then I, Hannah, would be an instance of the class human. 
@@ -19,6 +21,8 @@ comments: true
 **Cucumber**           : an acceptance testing framework, that is written in language much like English. It uses the structure of 'given, when, then', allowing clients to specify to the developers exactly how they want the user to experience the software. For example, if we were testing that a customer can add items to their shopping basket when on a particular website, the test would read something like 'Given that I am on the homepage, when I click on the button 'Add Item to Basket', then I should have one item in my basket.'
 
 **Extreme programming**: emphasises responsiveness to customer requirements, pair-programming and frequent releases of software in short development cycles
+
+**Front-end development**: Development of the parts of apps/websites that customers see and interact with. Front-end languages include HTML for structuring, CSS for styling and JavaScript and JQuery for interactivity. 
 
 **Gems**               : a Ruby programme that someone else has written and packaged so that anyone can download and use it in their own programmes. There is a gem for literally everything! 
 
