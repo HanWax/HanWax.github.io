@@ -5,9 +5,24 @@
     <description>Hi, I&#39;m Hannah! I recently graduated from Cambridge with a degree in Bio Anthropology and Business. I&#39;m currently learning to code at Makers Academy, a webdev bootcamp in London, and absolutely loving it! Please get in touch if you have any questions.</description>
     <link>http://hanwax.github.io/</link>
     <atom:link href="http://hanwax.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 24 Aug 2014 23:11:04 +0100</pubDate>
-    <lastBuildDate>Sun, 24 Aug 2014 23:11:04 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Aug 2014 07:42:53 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Aug 2014 07:42:53 +0100</lastBuildDate>
     <generator>Jekyll v2.3.0</generator>
+    
+      <item>
+        <title>Sarcasm on Ruby and JS</title>
+        <description>&lt;p&gt;For those of you who have asked if there is such thing as coding banter watch this.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.destroyallsoftware.com/talks/wat&quot;&gt;WAT - Sarcasm on Ruby and JavaScript&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s funny, I think…&lt;/p&gt;
+</description>
+        <pubDate>Tue, 26 Aug 2014 23:55:32 +0100</pubDate>
+        <link>http://hanwax.github.io/2014/08/26/sarcasm-on-ruby-and-js/</link>
+        <guid isPermaLink="true">http://hanwax.github.io/2014/08/26/sarcasm-on-ruby-and-js/</guid>
+        
+        
+      </item>
     
       <item>
         <title>On open-source software</title>
@@ -15,9 +30,9 @@
 
 &lt;p&gt;Before I launch into my ‘I love Bootstrap’ spiel, I’ll just give a quick overview of what Bootstrap is. According to Wikipedia Bootstrap is a free collection of tools for creating websites and web applications. It contains HTML and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions. Did I mention that Bootstrap was developed by Twitter? &lt;/p&gt;
 
-&lt;p&gt;It is fair to say, that over these past couple of weeks I have struggled with the front-end design of my apps. It’s not that I don’t like pretty things, or that I can’t tell if something is ugly. But I have found it so hard to implement just a basic, clean design for my web applications programmes using just HTML/CSS (and some SASS). It was extremely hard to position elements in an aesthetically pleasing way; it was hard to gain a cohesive identity for the website. The homepage of my Foodly app (a mini project to practice using APIs) didn’t look too shabby (You can check it out on Heroku here:&lt;a href=&quot;http://food-ly.herokuapp.com/&quot;&gt;Foodly&lt;/a&gt;). As you can see, I gave up styling the results page because it took me so long to get the positioning right. I also didn’t have time to think about various screen sizes/making it available on cross-browser platforms - so if you are viewing this on a screen other than a 13 inch one, I can’t vouch for the layout. Sorry!). For me, HTML/CSS required a huge amount of time and patience to yield results that are only partly satisfying. &lt;/p&gt;
+&lt;p&gt;It is fair to say, that over these past couple of weeks I have struggled with the front-end design of my apps. It’s not that I don’t like pretty things, or that I can’t tell if something is ugly. But I have found it so hard to implement just a basic, clean design for my web applications programmes using just HTML/CSS (and some SASS). It was extremely hard to position elements in an aesthetically pleasing way; it was hard to gain a cohesive identity for the website. The homepage of my Foodly app (a mini project to practice using APIs) didn’t look too shabby (You can check it out on Heroku here: &lt;a href=&quot;http://food-ly.herokuapp.com/&quot;&gt;Foodly&lt;/a&gt;). As you can see, I gave up styling the results page because it took me so long to get the positioning right. I also didn’t have time to think about various screen sizes/making it available on cross-browser platforms - so if you are viewing this on a screen other than a 13 inch one, I can’t vouch for the layout. Sorry!). For me, HTML/CSS required a huge amount of time and patience to yield results that are only partly satisfying. &lt;/p&gt;
 
-&lt;p&gt;Today we were introduced to Bootstrap. I can’t believe I’m saying this, but I essentially spent all of today on designing my Instagram app, and it was an absolute pleasure! (You can check it out on Heroku here:&lt;a href=&quot;http://latergram-now.herokuapp.com/&quot;&gt;Latergram&lt;/a&gt;). Bootstrap, when combined with the Chrome ‘inspect element’ features are literally life-saving, and return the pleasure of design to people like me who enjoy pretty things, but don’t have the eye to be able to put everything together from scratch. By far the best feature of Bootstrap is the grid design which makes positioning on your page simple and gives it a professional look. It is also responsive, meaning that the layout of the page will change when the screen size does, in a way to render the website nicely on a variety of screen sizes. &lt;/p&gt;
+&lt;p&gt;Today we were introduced to Bootstrap. I can’t believe I’m saying this, but I essentially spent all of today on designing my Instagram app, and it was an absolute pleasure! (You can check it out on Heroku here: &lt;a href=&quot;http://latergram-now.herokuapp.com/&quot;&gt;Latergram&lt;/a&gt;). Bootstrap, when combined with the Chrome ‘inspect element’ features are literally life-saving, and return the pleasure of design to people like me who enjoy pretty things, but don’t have the eye to be able to put everything together from scratch. By far the best feature of Bootstrap is the grid design which makes positioning on your page simple and gives it a professional look. It is also responsive, meaning that the layout of the page will change when the screen size does, in a way to render the website nicely on a variety of screen sizes. &lt;/p&gt;
 
 &lt;p&gt;And the best thing about it all? These are open-source projects! Bootstrap has been forked from Github something like 70,000 times. &lt;/p&gt;
 
@@ -448,34 +463,6 @@
         <pubDate>Sat, 16 Aug 2014 22:00:00 +0100</pubDate>
         <link>http://hanwax.github.io/2014/08/16/life-at-makers/</link>
         <guid isPermaLink="true">http://hanwax.github.io/2014/08/16/life-at-makers/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Hello, World!</title>
-        <description>&lt;p&gt;Gosh, it’s taken me just about 8 weeks to sit down and actually write this first post. But better late than never, right? &lt;/p&gt;
-
-&lt;p&gt;These past 8 week at Makers Academy have been a real whirlwind, with little time/head space for much else other than code. So firstly, I would like to apologise for being rubbish at replying/being in contact over this summer :(&lt;/p&gt;
-
-&lt;p&gt;I decided to write this blog for several reasons. Often I get asked what I do at Makers Academy, and so I thought it would be good to write a little about what life is like there. Also, as I am encountering and learning so much new stuff, I have often found that the best way to get to grips with things is by explaining key concepts and methodologies by writing them down. I hope in the process that I can help other people understand them better too. I really appreciate comments and feedback, so if anything is unclear, or could be explained in a more intuitive manner, please do not hesitate to get in contact!&lt;/p&gt;
-
-&lt;p&gt;It’s fairly tough to explain to friends and family exactly what it is I am doing without using techinical terms and jargon. Although the blog will be somewhat on the technical side, I have written a brief guide to tech terms to explain some of their usage. In this way I hope my blog will be accessible to my friends and family too (should you wish to have a read - no obligation!) &lt;/p&gt;
-
-&lt;p&gt;One of the things that I love about the tech world is the quirky names and conventions for stuff. From Cucumber, to Capybara to spies, you’re never really sure what reality you are in. But you just go along with it. Anyway, one of my favourite conventions is the ‘Hello, World!’ convention. The first encounter that anyone has with programming is traditionally writing a ‘Hello World’ programme - that is, a programme that outputs the string ‘Hello, World!’&lt;/p&gt;
-
-&lt;p&gt;In Ruby this is fairly simple. All you need to do is &lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Hello, World!&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;In honour of this convention, I have called my blog ‘Hello, World’. This is my ‘Hello, World’, to the world of tech. &lt;/p&gt;
-
-&lt;p&gt;Hannah &lt;/p&gt;
-
-</description>
-        <pubDate>Fri, 15 Aug 2014 18:55:32 +0100</pubDate>
-        <link>http://hanwax.github.io/2014/08/15/first-post/</link>
-        <guid isPermaLink="true">http://hanwax.github.io/2014/08/15/first-post/</guid>
         
         
       </item>
