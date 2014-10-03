@@ -1,0 +1,57 @@
+---
+layout: post
+title:  "All things agile"
+date:   2014-10-01 20:00:00
+analytics: true
+comments: true
+---
+
+Whilst the course at Makers Academy is a Ruby based course, Makers declares itself to be language agnostic. This is because the main focus lies firmly in learning best software development practices and architectural design. In the course of a software development career, engineers will encounter many languages, and often unfamiliar ones. But if you can follow best practices that ensure software is robust, bug-free, extendable and  maintainable following good Object-Oriented Design principles then it becomes a matter of learning the particular syntax and conventions of a language, which is far easier and quicker to do, to still be able to write high quality software in other OO languages. One of the best practices that is heavily emphasised at Makers is agile methodology.'Agile' as a term is one that is bandied around a lot and can seem quite vague, so I thought I would go into a little bit of depth to understand what the Agile Manifesto is promoting, and to consider its relative merits or shortcomings. 
+
+I have two things I would like to add before I kick off the discussion.
+
+Firstly a disclaimer. I have never worked as a commercial software developer, or indeed in the commercial world at all. This somewhat limits my real-life experience, and what might have sound theoretical basis might in practice have many downsides. I just have yet to experience them. This discussion is merely my musings and would be happy to hear people's experience, positive or otherwise, of developing commercial software according to agile principles. A quick Google search returns plenty of [disgruntled agilees](http://www.cio.com/article/2385322/agile-development/why-agile-isn-t-working--bringing-common-sense-to-agile-principles.html). 
+
+Secondly, I have a special place for agile as a concept in my heart. Whether consciously or not, the start of my adult life has not followed too much of a linear path to say the least. From an aspiring English Literature student, to a Business/Biological Anthropologist turned junior software developer, following a plan laid out well in advance is not my thing(!) Instead, I have seized upon relevant opportunities as my interests have developed (helped along the way by interesting discussions, book recommendations and general good advice from friends and family). The biological anthropologist in me is itching to make an analogy with evolution here: there is no grand design in evolution, but rather it is an iterative process, one of variation and selection, or trial and error as economist [Tim Harford](http://www.ted.com/talks/tim_harford?language=en#t-618770) calls it in his brilliant TED talk. Being responsive to my environment, I like to believe, has led me on a richer path. Like the philosophy of Makers, where the concepts and ideas rather than syntax are focussed on, I am building up the skills to allow me to adapt to various environments. Arguably the reason why _Homo Sapiens_ survived over other species such as the _Neanderthals_, a cold-adapted species, are because we are generalists. There is almost no place on earth that _Homo Sapiens_ haven't adapted to because of our generalist outlook. By being a generalist though, we make trade offs. For example, I am far from a specialist in anything. Again, as a biological anthropologist, I understand how important the division of labour has been in human development. The division of labour requires that people specialise. 
+
+So how does all this relate to the [Agile Manifesto](http://agilemanifesto.org/) and software development?
+-----------------------------------------------------------------------------------------------------------
+
+Agile in software development is not only about being adapting to changing circumstances, although that is a part of it. And it isn't about producing working software little and often, constantly iterating over it, although that is also a part of it. So what lies at its heart?
+
+The stated highest priority of software development according to the Agile Manifesto is to satisfy the customer, allowing them to change the specifications of the build late on in the development process. The manifesto sets out guidelines for how to adopt such a customer- rather than product-centric approach. 
+
+It rests of four clear preferences: 
+
+1. Individuals and interactions over Processes and tools
+
+2. Working software over Comprehensive documentation
+
+3. Customer collaboration over Contract negotiation
+
+4. Responding to change over Following a plan
+
+So what tools do agile developers use to achieve these preferences? 
+
+These are four of my favourite:
+
+1. **Behaviour Driven Development** and [Cucumber](http://cukes.info/). Behaviour-driven development specifies that tests of any unit of software should be specified in terms of the **desired behaviour of the unit** as specified by the customer requirements. These are known as User stories. Cucumber is a testing framework that allows you to specify these User stories in plain English using the 'Given, When, Then' syntax. Cucumber is a common language between techies and non-techies. The language barrier can often seem insurmountable. Even with only 3 months of development experience, it has been hard to communicate what I have been doing to non-techies. I can see how many problems in traditional software development would arise as a result of the gap in understanding and lack of a common language. Cucumber is not only useful as a common language for a business to describe their technical specifications, but also for the developers to be able to conceptualise the larger picture of what it is they are developing. This facilitates customer collaboration and negates the need for extensive contract negotiations. 
+
+2. **Stand-ups** - quick 10-minute meetings that happen at frequent intervals with all stakeholders present. Each person updates on their progress and what issues they are facing. It is much more effective to convey necessary information face-to-face rather than through tools and processes, which take time and leave a huge amount of room for miscommunication and misunderstandings. For our final project, having stand-ups every morning meant that everyone was on the same page, and could rotate easily between building different parts of the project. 
+
+3. **Self-organised teams** rather than micro-managed teams. For me this is one of the most attractive parts of agile, but it is one that I can imagine being hardest to implement in practice. Last year I studied *Organisational Behaviour* in which we discussed issues of motivation in the workplace. What motivates people is tricky to understand, but I believe that we are most motivated by autonomy and responsibility for our work. If devs are motivated and take ownership over their work, which they can do because of frequent communication between the various teams and close customer collaboration, I can imagine productivity will increase and work will be of a higher standard. 
+
+4. **Frequent builds** delivering over a couple of weeks or months rather than years. In traditional [Waterfall](http://en.wikipedia.org/wiki/Waterfall_model) projects, huge amounts of money and time is spent on developing software and it does not become clear until the end of the project whether it is still relevant or whether it works. Newspaper headlines often contain stories of huge software projects running massively over budget, failing due to poor management and ultimately being abandoned which are expensive for companies and often the tax payers e.g. [NHS software disaster](http://www.theguardian.com/society/2013/sep/18/nhs-records-system-10bn). In our final project, we focused on getting out the minimum viable product as a proof of concept first. Then we added features that would enhance user experience such as creating a social network between users. 
+
+Together, I believe these practices give customers an evolutionary advantage as they can adapt quickly to a changing landscape, whilst it is also more satisfying work for developers. Software development becomes less of an solitary experience and more collaborative. 
+
+Having said that, these four preferences are just that. The manifesto is not claiming that there is no value in having processes or documentation. I have wasted many hours on some of the Friday tech tests at Makers because I did not plan fully how I would structure my data and how that would interact with the programme. Having a clear plan as to how to tackle problems is important. Again, there is value in having strong leadership in a team. Companies need to consider what trade-offs they will be making when adopting agile. The main advantage I think of Agile is that is focuses on the ultimate goal of producing maintainable, high quality software to the customer's specifications. With detailed plans, processes and tools it is easy to spend a huge amount of time and money on the tools themselves, which were merely there as a means to an end and can make it far harder to allow customer requirements to change. 
+
+
+
+
+
+
+
+
+
